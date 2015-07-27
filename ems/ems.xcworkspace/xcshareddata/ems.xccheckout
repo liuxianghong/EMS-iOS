@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>1D4BE57C-8652-48FD-AB52-04835A1BFD98</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ems</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B357E8C29D05037393C825D9AD27967A6FC751E5</key>
+		<string>github.com:liuxianghong/EMS-iOS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ems/ems.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B357E8C29D05037393C825D9AD27967A6FC751E5</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:liuxianghong/EMS-iOS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B357E8C29D05037393C825D9AD27967A6FC751E5</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B357E8C29D05037393C825D9AD27967A6FC751E5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>EMS-iOS</string>
+		</dict>
+	</array>
+</dict>
+</plist>
