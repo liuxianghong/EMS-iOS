@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>2324B899-234D-42FC-91C5-B5396C7E4001</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>ems</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>B357E8C29D05037393C825D9AD27967A6FC751E5</key>
 		<string>github.com:liuxianghong/EMS-iOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>ems/ems.xcodeproj/project.xcworkspace</string>
+	<string>ems/ems.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>B357E8C29D05037393C825D9AD27967A6FC751E5</key>
