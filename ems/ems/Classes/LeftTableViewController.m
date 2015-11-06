@@ -7,12 +7,16 @@
 //
 
 #import "LeftTableViewController.h"
+#import "LeftTableViewCell.h"
 
 @interface LeftTableViewController ()
 
 @end
 
 @implementation LeftTableViewController
+{
+    NSArray *tableArray;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,7 +27,8 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     //[self setBackImage];
-    self.tableView.backgroundColor = [UIColor colorWithRed:218/255.0 green:207/255.0 blue:207/255.0 alpha:1.0f];
+    self.tableView.backgroundColor = [UIColor blackColor];
+    tableArray = @[@[@"设置",@"ic_settings.png"],@[@"商城",@"ic_store.png"],@[@"积分",@"ic_recommend.png"],@[@"精品推荐",@"ic_mark.png"],@[@"产品使用场景",@"ic_scene.png"],@[@"问题反馈",@"ic_report.png"],@[@"帮助",@"ic_help.png"]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,20 +47,25 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 4;
+    return [tableArray count]+1;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *identifier = @"cellIdentifier";
+   
     if (indexPath.row == 0) {
-        identifier = @"headIdentifier";
+        NSString *identifier = @"headIdentifier";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+        return cell;
     }
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
+    else
+    {
+        NSString *identifier = @"cellIdentifier";
+        LeftTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+        cell.nameLabel.text = tableArray[indexPath.row-1][0];
+        cell.headImageView.image = [UIImage imageNamed:tableArray[indexPath.row-1][1]];
+        return cell;
+    }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -66,10 +76,14 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
-        return 120;
+        return 75;
     }
     else
-        return 50;
+    {
+        CGFloat height = 50;
+        return height;
+    }
+    
 }
 
 /*

@@ -4,16 +4,6 @@
    <FileRef
       location = "group:ems.xcodeproj">
    </FileRef>
-   <Group
-      location = "group:ems/ThirdParty"
-      name = "ThirdParty">
-      <FileRef
-         location = "group:UIView+AHKit.h">
-      </FileRef>
-      <FileRef
-         location = "group:UIView+AHKit.m">
-      </FileRef>
-   </Group>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>

@@ -9,13 +9,15 @@
 #import "LoginViewController.h"
 #import <MBProgressHUD.h>
 #import "EMSAPI.h"
+#import "IHKeyboardAvoiding.h"
+#import "TopView.h"
 
 @interface LoginViewController () <UITextFieldDelegate>
-@property (nonatomic,weak) IBOutlet UIView *loginNameView;
-@property (nonatomic,weak) IBOutlet UIView *passworedView;
+@property (nonatomic,weak) IBOutlet UIView *contanstView;
 @property (nonatomic,weak) IBOutlet UITextField *loginNameTextField;
 @property (nonatomic,weak) IBOutlet UITextField *passworedTextField;
 @property (nonatomic,weak) IBOutlet UIButton *loginButton;
+@property (nonatomic,weak) IBOutlet TopView *topView;
 @end
 
 @implementation LoginViewController
@@ -23,16 +25,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.loginButton.layer.cornerRadius = 7;
-    self.loginButton.layer.borderWidth = 2;
-    self.loginButton.layer.borderColor = [[UIColor whiteColor] CGColor];
-    self.loginButton.layer.masksToBounds = YES;
-    [self.loginButton setBackgroundImage:[UIImage colorImage:[UIColor colorWithRed:0xb5/255.0  green:0xb5/255.0 blue:0xb5/255.0 alpha:1.0f]] forState:UIControlStateHighlighted];
-    [self setBackImage];
-    
+//    self.loginButton.layer.cornerRadius = 7;
+//    self.loginButton.layer.borderWidth = 2;
+//    self.loginButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+//    self.loginButton.layer.masksToBounds = YES;
+//    [self.loginButton setBackgroundImage:[UIImage colorImage:[UIColor colorWithRed:0xb5/255.0  green:0xb5/255.0 blue:0xb5/255.0 alpha:1.0f]] forState:UIControlStateHighlighted];
+//    [self setBackImage];
+    [IHKeyboardAvoiding setAvoidingView:self.contanstView];
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
     tapGestureRecognizer.cancelsTouchesInView = YES;
-    [self.view addGestureRecognizer:tapGestureRecognizer];
+    [self.contanstView addGestureRecognizer:tapGestureRecognizer];
+    self.topView.title = @"登录";
 }
 
 -(void)keyboardHide:(UITapGestureRecognizer*)tap{
@@ -43,29 +46,33 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.loginNameView.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight cornerRadii:CGSizeMake(7, 7)];
-    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-    maskLayer.frame = self.loginNameView.bounds;
-    maskLayer.path = maskPath.CGPath;
-    self.loginNameView.layer.mask = maskLayer;
-    
-    UIBezierPath *maskPath2 = [UIBezierPath bezierPathWithRoundedRect:self.passworedView.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(7, 7)];
-    CAShapeLayer *maskLayer2 = [[CAShapeLayer alloc] init];
-    maskLayer2.frame = self.passworedView.bounds;
-    maskLayer2.path = maskPath2.CGPath;
-    self.passworedView.layer.mask = maskLayer2;
+//    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.loginNameView.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight cornerRadii:CGSizeMake(7, 7)];
+//    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+//    maskLayer.frame = self.loginNameView.bounds;
+//    maskLayer.path = maskPath.CGPath;
+//    self.loginNameView.layer.mask = maskLayer;
+//    
+//    UIBezierPath *maskPath2 = [UIBezierPath bezierPathWithRoundedRect:self.passworedView.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(7, 7)];
+//    CAShapeLayer *maskLayer2 = [[CAShapeLayer alloc] init];
+//    maskLayer2.frame = self.passworedView.bounds;
+//    maskLayer2.path = maskPath2.CGPath;
+//    self.passworedView.layer.mask = maskLayer2;
 }
 
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     [self keyboardHide:nil];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -76,7 +83,7 @@
 
 -(IBAction)backCliced:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(IBAction)loginCliced:(id)sender
@@ -115,10 +122,7 @@
             hud.mode = MBProgressHUDModeText;
             hud.detailsLabelText = @"登陆成功";
             [hud hide:YES];
-            [EMSAPI saveUserImformatin:responseObject[@"data"]];
-            [[NSUserDefaults standardUserDefaults]setObject:loginName forKey:@"loginloginName"];
-            [[NSUserDefaults standardUserDefaults]setObject:password forKey:@"loginpassword"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
+            [EMSAPI saveUserImformatin:[responseObject[@"data"] firstObject]];
             [self dismissViewControllerAnimated:YES completion:nil];
         }
         else if([responseObject[@"state"] integerValue]==4)

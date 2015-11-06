@@ -10,14 +10,18 @@
 #import "EMSAPI.h"
 #import <MBProgressHUD.h>
 #import "UserManager.h"
+#import "IHKeyboardAvoiding.h"
 
 @interface RegisterLoginNameViewController ()
 @property (nonatomic,weak) IBOutlet UIButton *nextButton;
-@property (nonatomic,weak) IBOutlet UIView *loginNameView;
-@property (nonatomic,weak) IBOutlet UIView *passworedView;
 @property (nonatomic,weak) IBOutlet UITextField *loginNameTextField;
 @property (nonatomic,weak) IBOutlet UITextField *passworedTextField;
+@property (nonatomic,weak) IBOutlet UITextField *repassworedTextField;
+@property (nonatomic,weak) IBOutlet UITextField *codeTextField;
+@property (nonatomic,weak) IBOutlet UITextField *nickNameTextField;
 @property (nonatomic,weak) IBOutlet UIButton *codeButton;
+@property (nonatomic,weak) IBOutlet UIView *contanstView;
+@property (nonatomic,weak) IBOutlet TopView *topView;
 @end
 
 @implementation RegisterLoginNameViewController
@@ -26,25 +30,23 @@
     long timeCount;
     
     NSString *code;
-    
-    NSInteger type;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.nextButton.layer.cornerRadius = 7;
-    self.nextButton.layer.borderWidth = 2;
-    self.nextButton.layer.borderColor = [[UIColor whiteColor] CGColor];
-    self.nextButton.layer.masksToBounds = YES;
-    [self.nextButton setBackgroundImage:[UIImage colorImage:[UIColor colorWithRed:0xb5/255.0  green:0xb5/255.0 blue:0xb5/255.0 alpha:1.0f]] forState:UIControlStateHighlighted];
-    [self setBackImage];
-    
+//    self.nextButton.layer.cornerRadius = 7;
+//    self.nextButton.layer.borderWidth = 2;
+//    self.nextButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+//    self.nextButton.layer.masksToBounds = YES;
+//    [self.nextButton setBackgroundImage:[UIImage colorImage:[UIColor colorWithRed:0xb5/255.0  green:0xb5/255.0 blue:0xb5/255.0 alpha:1.0f]] forState:UIControlStateHighlighted];
+//    [self setBackImage];
+    [IHKeyboardAvoiding setAvoidingView:self.contanstView];
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
     tapGestureRecognizer.cancelsTouchesInView = YES;
     [self.view addGestureRecognizer:tapGestureRecognizer];
+    self.topView.title = @"注册";
     
-    type = 0;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,17 +57,17 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.loginNameView.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight cornerRadii:CGSizeMake(7, 7)];
-    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-    maskLayer.frame = self.loginNameView.bounds;
-    maskLayer.path = maskPath.CGPath;
-    self.loginNameView.layer.mask = maskLayer;
-    
-    UIBezierPath *maskPath2 = [UIBezierPath bezierPathWithRoundedRect:self.passworedView.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(7, 7)];
-    CAShapeLayer *maskLayer2 = [[CAShapeLayer alloc] init];
-    maskLayer2.frame = self.passworedView.bounds;
-    maskLayer2.path = maskPath2.CGPath;
-    self.passworedView.layer.mask = maskLayer2;
+//    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.loginNameView.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight cornerRadii:CGSizeMake(7, 7)];
+//    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+//    maskLayer.frame = self.loginNameView.bounds;
+//    maskLayer.path = maskPath.CGPath;
+//    self.loginNameView.layer.mask = maskLayer;
+//    
+//    UIBezierPath *maskPath2 = [UIBezierPath bezierPathWithRoundedRect:self.passworedView.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(7, 7)];
+//    CAShapeLayer *maskLayer2 = [[CAShapeLayer alloc] init];
+//    maskLayer2.frame = self.passworedView.bounds;
+//    maskLayer2.path = maskPath2.CGPath;
+//    self.passworedView.layer.mask = maskLayer2;
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -93,18 +95,23 @@
             [self.codeButton setEnabled:NO];
             [self.codeButton.titleLabel setFont:[UIFont systemFontOfSize:11.0f]];
             timeCount = 60-interval;
-            [self.codeButton setTitle:[NSString stringWithFormat:@"%ld秒后重新发送", timeCount] forState:UIControlStateDisabled];
+            [self.codeButton setTitle:[NSString stringWithFormat:@"%ld秒后重发", timeCount] forState:UIControlStateDisabled];
             countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDown) userInfo:nil repeats:YES];
         }
         
     }
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)countDown
 {
     timeCount --;
     if (timeCount > 0) {
-        [self.codeButton setTitle:[NSString stringWithFormat:@"%ld秒后重新发送", timeCount] forState:UIControlStateDisabled];
+        [self.codeButton setTitle:[NSString stringWithFormat:@"%ld秒后重发", timeCount] forState:UIControlStateDisabled];
     }
     else{
         [self.codeButton setEnabled:YES];
@@ -118,6 +125,9 @@
 {
     [self.loginNameTextField resignFirstResponder];
     [self.passworedTextField resignFirstResponder];
+    [self.nickNameTextField resignFirstResponder];
+    [self.repassworedTextField resignFirstResponder];
+    [self.codeTextField resignFirstResponder];
 }
 
 -(IBAction)backButtonClicked:(id)sender
@@ -125,17 +135,17 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
--(IBAction)loginButtonClicked:(id)sender
-{
-    [self.navigationController popToRootViewControllerAnimated:YES];
-}
-
-- (IBAction)loginTypeClick:(UISegmentedControl *)sender {
-    NSInteger index = type = sender.selectedSegmentIndex;
-    [self.loginNameTextField resignFirstResponder];
-    self.loginNameTextField.placeholder = index?@"请输入邮箱":@"请输入手机号码";
-    self.loginNameTextField.keyboardType = index?UIKeyboardTypeEmailAddress:UIKeyboardTypePhonePad;
-}
+//-(IBAction)loginButtonClicked:(id)sender
+//{
+//    [self.navigationController popToRootViewControllerAnimated:YES];
+//}
+//
+//- (IBAction)loginTypeClick:(UISegmentedControl *)sender {
+//    NSInteger index = type = sender.selectedSegmentIndex;
+//    [self.loginNameTextField resignFirstResponder];
+//    self.loginNameTextField.placeholder = index?@"请输入邮箱":@"请输入手机号码";
+//    self.loginNameTextField.keyboardType = index?UIKeyboardTypeEmailAddress:UIKeyboardTypePhonePad;
+//}
 
 -(IBAction)sendClick:(id)sender
 {
@@ -160,7 +170,7 @@
             [self.codeButton setEnabled:NO];
             [self.codeButton.titleLabel setFont:[UIFont systemFontOfSize:11.0f]];
             timeCount = 60;
-            [self.codeButton setTitle:[NSString stringWithFormat:@"%ld秒后重新发送", timeCount] forState:UIControlStateDisabled];
+            [self.codeButton setTitle:[NSString stringWithFormat:@"%ld秒后重发", timeCount] forState:UIControlStateDisabled];
             countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDown) userInfo:nil repeats:YES];
         }else
         {
@@ -189,12 +199,17 @@
 
 -(IBAction)nextClicked:(id)sender
 {
-    
-    
-    if (![self checkLoginName]) {
+    BOOL test = NO;
+    if(test)
+    {
+        [self performSegueWithIdentifier:@"nextIdentifier" sender:nil];
         return;
     }
-    if ([self.passworedTextField.text length]<1) {
+    NSString *usertype = [self checkLoginName];
+    if (!usertype) {
+        return;
+    }
+    if ([self.codeTextField.text length]<1) {
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
         hud.dimBackground = YES;
         hud.mode = MBProgressHUDModeText;
@@ -202,41 +217,64 @@
         [hud hide:YES afterDelay:1.5f];
         return;
     }
+    if (![self.codeTextField.text isEqualToString:code]) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+        hud.dimBackground = YES;
+        hud.mode = MBProgressHUDModeText;
+        hud.detailsLabelText = @"验证码错误";
+        [hud hide:YES afterDelay:1.5f];
+        return;
+    }
+    if ([self.nickNameTextField.text length]<1) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+        hud.dimBackground = YES;
+        hud.mode = MBProgressHUDModeText;
+        hud.detailsLabelText = @"请输入昵称";
+        [hud hide:YES afterDelay:1.5f];
+        return;
+    }
+    if ([self.passworedTextField.text length]<6) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+        hud.dimBackground = YES;
+        hud.mode = MBProgressHUDModeText;
+        hud.detailsLabelText = @"密码长度至少6位";
+        [hud hide:YES afterDelay:1.5f];
+        return;
+    }
+    if (![self.passworedTextField.text isEqualToString:self.repassworedTextField.text]) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+        hud.dimBackground = YES;
+        hud.mode = MBProgressHUDModeText;
+        hud.detailsLabelText = @"两次密码不一致";
+        [hud hide:YES afterDelay:1.5f];
+        return;
+    }
     if (![UserManager sharedManager].registerModel) {
         [UserManager sharedManager].registerModel = [[RegisterModel alloc] init];
     }
     [UserManager sharedManager].registerModel.loginname = self.loginNameTextField.text;
-    [UserManager sharedManager].registerModel.random = self.passworedTextField.text;
-    [UserManager sharedManager].registerModel.usertype = type?@"2":@"1";
+    [UserManager sharedManager].registerModel.password = self.passworedTextField.text;
+    [UserManager sharedManager].registerModel.usertype = usertype;
+    [UserManager sharedManager].registerModel.random = self.codeTextField.text;
+    [UserManager sharedManager].registerModel.nickname = self.nickNameTextField.text;
     [self performSegueWithIdentifier:@"nextIdentifier" sender:nil];
 }
 
--(BOOL)checkLoginName
+-(NSString *)checkLoginName
 {
-    if (type==0) {
-        if (![self.loginNameTextField.text checkTel]) {
-            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
-            hud.dimBackground = YES;
-            hud.mode = MBProgressHUDModeText;
-            hud.detailsLabelText = @"请输入正确的手机号码";
-            [hud hide:YES afterDelay:1.5f];
-            return NO;
-        }
-        return YES;
+    if ([self.loginNameTextField.text checkTel]) {
+        
+        return @"1";
     }
-    else
-    {
-        if (![self.loginNameTextField.text isValidateEmail]) {
-            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
-            hud.dimBackground = YES;
-            hud.mode = MBProgressHUDModeText;
-            hud.detailsLabelText = @"请输入正确的邮箱";
-            [hud hide:YES afterDelay:1.5f];
-            return NO;
-        }
-        return YES;
+    if ([self.loginNameTextField.text isValidateEmail]) {
+        return @"2";
     }
-    return NO;
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+    hud.dimBackground = YES;
+    hud.mode = MBProgressHUDModeText;
+    hud.detailsLabelText = @"请输入正确的邮箱/手机号码";
+    [hud hide:YES afterDelay:1.5f];
+    return nil;
 }
 #pragma mark - UITextFieldDelegate
 -(BOOL)textFieldShouldReturn:(UITextField *)textField

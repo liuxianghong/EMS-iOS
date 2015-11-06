@@ -19,6 +19,11 @@
 
 +(void)saveUserImformatin:(NSDictionary *)responseObject
 {
+    for(NSString *key in [responseObject allKeys])
+    {
+        [[NSUserDefaults standardUserDefaults]setObject:responseObject[key] forKey:key];
+    }
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 + (void)UserRegisterWithParameters: (id)parameters success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure

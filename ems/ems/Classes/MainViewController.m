@@ -27,15 +27,24 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    NSString *str = [[NSUserDefaults standardUserDefaults]objectForKey:@"verson"];
+    if (![str isEqualToString:@"1"]) {//
+        [self performSegueWithIdentifier:@"wlcomeHelp" sender:nil];
+        [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"verson"];
+    }
+    else
+    {
+//        static BOOL isFirst = YES;
+//        if (isFirst) {
+//            [self performSegueWithIdentifier:@"Login" sender:nil];
+//        }
+//        isFirst = NO;
+    }
     //    [super viewDidAppear:animated];
     //    if (![[NSUserDefaults standardUserDefaults]objectForKey:@"token"]) {
     //        [self performSegueWithIdentifier:@"LoginSegueIdentifier" sender:nil];
     //    }
-    static BOOL isFirst = YES;
-    if (isFirst) {
-        [self performSegueWithIdentifier:@"Login" sender:nil];
-    }
-    isFirst = NO;
+    
     [super viewDidAppear:animated];
 }
 /*
