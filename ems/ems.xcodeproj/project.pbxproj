@@ -24,7 +24,6 @@
 		D30B1A591B9DF725005D452C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D30B1A581B9DF725005D452C /* HomeViewController.m */; };
 		D30B1A5C1B9DF84E005D452C /* IIWrapController.m in Sources */ = {isa = PBXBuildFile; fileRef = D30B1A5B1B9DF84E005D452C /* IIWrapController.m */; };
 		D30B1A621B9DF946005D452C /* LeftTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D30B1A611B9DF946005D452C /* LeftTableViewController.m */; };
-		D30B1A651B9DF96A005D452C /* RightTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D30B1A641B9DF96A005D452C /* RightTableViewController.m */; };
 		D30B1A681B9DF981005D452C /* CenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D30B1A671B9DF981005D452C /* CenterViewController.m */; };
 		D367AA5A1BE9FC80007C5D41 /* bg_paster_details.png in Resources */ = {isa = PBXBuildFile; fileRef = D367AA211BE9FC80007C5D41 /* bg_paster_details.png */; };
 		D367AA5C1BE9FC80007C5D41 /* ic_loading.png in Resources */ = {isa = PBXBuildFile; fileRef = D367AA231BE9FC80007C5D41 /* ic_loading.png */; };
@@ -89,6 +88,9 @@
 		D367AAAD1BECFE43007C5D41 /* DateScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D367AAAC1BECFE43007C5D41 /* DateScrollView.m */; };
 		D367AAB01BED037E007C5D41 /* DateView.m in Sources */ = {isa = PBXBuildFile; fileRef = D367AAAF1BED037E007C5D41 /* DateView.m */; };
 		D367AAB21BED0399007C5D41 /* DateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D367AAB11BED0399007C5D41 /* DateView.xib */; };
+		D367AAB51BED2B00007C5D41 /* ModelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D367AAB41BED2B00007C5D41 /* ModelButton.m */; };
+		D367AAB81BED2C69007C5D41 /* RightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D367AAB71BED2C69007C5D41 /* RightViewController.m */; };
+		D367AABB1BED2F25007C5D41 /* DetalSeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D367AABA1BED2F25007C5D41 /* DetalSeeViewController.m */; };
 		D3A9DFBF1B95A72C000C846B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A9DFBE1B95A72C000C846B /* MainViewController.m */; };
 		D3A9DFC21B96A551000C846B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A9DFC11B96A551000C846B /* LoginViewController.m */; };
 		D3A9DFC51B96B973000C846B /* EMSAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A9DFC41B96B973000C846B /* EMSAPI.m */; };
@@ -150,8 +152,6 @@
 		D30B1A5B1B9DF84E005D452C /* IIWrapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IIWrapController.m; sourceTree = "<group>"; };
 		D30B1A601B9DF946005D452C /* LeftTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftTableViewController.h; sourceTree = "<group>"; };
 		D30B1A611B9DF946005D452C /* LeftTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftTableViewController.m; sourceTree = "<group>"; };
-		D30B1A631B9DF96A005D452C /* RightTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightTableViewController.h; sourceTree = "<group>"; };
-		D30B1A641B9DF96A005D452C /* RightTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightTableViewController.m; sourceTree = "<group>"; };
 		D30B1A661B9DF981005D452C /* CenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterViewController.h; sourceTree = "<group>"; };
 		D30B1A671B9DF981005D452C /* CenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterViewController.m; sourceTree = "<group>"; };
 		D367AA211BE9FC80007C5D41 /* bg_paster_details.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_paster_details.png; sourceTree = "<group>"; };
@@ -225,6 +225,12 @@
 		D367AAAE1BED037E007C5D41 /* DateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateView.h; sourceTree = "<group>"; };
 		D367AAAF1BED037E007C5D41 /* DateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateView.m; sourceTree = "<group>"; };
 		D367AAB11BED0399007C5D41 /* DateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateView.xib; sourceTree = "<group>"; };
+		D367AAB31BED2B00007C5D41 /* ModelButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelButton.h; sourceTree = "<group>"; };
+		D367AAB41BED2B00007C5D41 /* ModelButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelButton.m; sourceTree = "<group>"; };
+		D367AAB61BED2C69007C5D41 /* RightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightViewController.h; sourceTree = "<group>"; };
+		D367AAB71BED2C69007C5D41 /* RightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightViewController.m; sourceTree = "<group>"; };
+		D367AAB91BED2F25007C5D41 /* DetalSeeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetalSeeViewController.h; sourceTree = "<group>"; };
+		D367AABA1BED2F25007C5D41 /* DetalSeeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetalSeeViewController.m; sourceTree = "<group>"; };
 		D3A9DFBD1B95A72C000C846B /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		D3A9DFBE1B95A72C000C846B /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		D3A9DFC01B96A551000C846B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -340,8 +346,10 @@
 		D30B1A5D1B9DF8EA005D452C /* Right */ = {
 			isa = PBXGroup;
 			children = (
-				D30B1A631B9DF96A005D452C /* RightTableViewController.h */,
-				D30B1A641B9DF96A005D452C /* RightTableViewController.m */,
+				D367AAB61BED2C69007C5D41 /* RightViewController.h */,
+				D367AAB71BED2C69007C5D41 /* RightViewController.m */,
+				D367AAB91BED2F25007C5D41 /* DetalSeeViewController.h */,
+				D367AABA1BED2F25007C5D41 /* DetalSeeViewController.m */,
 			);
 			name = Right;
 			sourceTree = "<group>";
@@ -476,6 +484,8 @@
 				D367AAAE1BED037E007C5D41 /* DateView.h */,
 				D367AAAF1BED037E007C5D41 /* DateView.m */,
 				D367AAB11BED0399007C5D41 /* DateView.xib */,
+				D367AAB31BED2B00007C5D41 /* ModelButton.h */,
+				D367AAB41BED2B00007C5D41 /* ModelButton.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -683,6 +693,12 @@
 				TargetAttributes = {
 					D3F116CC1B65E40C008D1E22 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = F44XSCNJGN;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					D3F116E81B65E40C008D1E22 = {
 						CreatedOnToolsVersion = 6.4;
@@ -837,6 +853,7 @@
 				D30B1A421B9D831D005D452C /* RegisterFinishViewController.m in Sources */,
 				D3A9DFC81B96BEA7000C846B /* RegisterNameViewController.m in Sources */,
 				D30B1A3C1B9D51E2005D452C /* ZHRulerView.m in Sources */,
+				D367AAB81BED2C69007C5D41 /* RightViewController.m in Sources */,
 				D3F116D61B65E40C008D1E22 /* AppDelegate.m in Sources */,
 				D3A9DFBF1B95A72C000C846B /* MainViewController.m in Sources */,
 				D30B1A321B9D46D4005D452C /* RegistWeightViewController.m in Sources */,
@@ -847,7 +864,6 @@
 				D367AA971BEA0DF4007C5D41 /* UIView+AHKit.m in Sources */,
 				D3F116D31B65E40C008D1E22 /* main.m in Sources */,
 				D367AAAD1BECFE43007C5D41 /* DateScrollView.m in Sources */,
-				D30B1A651B9DF96A005D452C /* RightTableViewController.m in Sources */,
 				D30B1A551B9DF681005D452C /* IIViewDeckController.m in Sources */,
 				D30B1A621B9DF946005D452C /* LeftTableViewController.m in Sources */,
 				D30B1A5C1B9DF84E005D452C /* IIWrapController.m in Sources */,
@@ -856,9 +872,11 @@
 				D3F116D91B65E40C008D1E22 /* ems.xcdatamodeld in Sources */,
 				D30B1A4F1B9DBBD1005D452C /* ForgetPWDoneViewController.m in Sources */,
 				D30B1A681B9DF981005D452C /* CenterViewController.m in Sources */,
+				D367AABB1BED2F25007C5D41 /* DetalSeeViewController.m in Sources */,
 				D367AAA41BEBB250007C5D41 /* SerialGATT.m in Sources */,
 				D367AAAA1BECFDFE007C5D41 /* TimeScrollView.m in Sources */,
 				D30B1A4C1B9DBBBC005D452C /* ForgetPWCodeViewController.m in Sources */,
+				D367AAB51BED2B00007C5D41 /* ModelButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -977,15 +995,15 @@
 			baseConfigurationReference = 26977CF825E73C51D0D5A76F /* Pods-ems.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Blackit Marketing Limited";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PREFIX_HEADER = "ems/ems-Prefix.pch";
 				INFOPLIST_FILE = ems/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lxh.ems;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.utlife.Where-sBaby";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "77e8708d-07fd-4d99-b3c2-409ad268462f";
 			};
 			name = Debug;
 		};
@@ -994,15 +1012,15 @@
 			baseConfigurationReference = E7F266C7E6D3B1D3D0F1B4CA /* Pods-ems.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Blackit Marketing Limited";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PREFIX_HEADER = "ems/ems-Prefix.pch";
 				INFOPLIST_FILE = ems/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lxh.ems;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.utlife.Where-sBaby";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "77e8708d-07fd-4d99-b3c2-409ad268462f";
 			};
 			name = Release;
 		};

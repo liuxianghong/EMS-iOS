@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DateScrollView : UIScrollView
+@protocol DateScrollViewDelegate <NSObject>
+-(void)didSelectDate:(NSDate *)date isToday:(BOOL)bo;
+@end
 
+@interface DateScrollView : UIScrollView
+@property (nonatomic,weak) IBOutlet id<DateScrollViewDelegate> dateScrolldelegate;
 @end

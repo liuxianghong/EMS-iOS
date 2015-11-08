@@ -53,7 +53,7 @@
     _index = index;
     NSDate *date = [NSDate dateWithTimeInterval:(index-(maxDateView - 4))*24*60*60 sinceDate:[NSDate date]];
     NSArray *weekArray = @[@"Sun",@"Mon",@"Tue",@"Wed",@"Thu",@"Fri",@"Sat"];
-    NSDateComponents *componets = [[NSCalendar autoupdatingCurrentCalendar] components:NSWeekdayCalendarUnit fromDate:date];
+    NSDateComponents *componets = [[NSCalendar autoupdatingCurrentCalendar] components:NSCalendarUnitWeekday fromDate:date];
     NSInteger weekday = [componets weekday];
     self.labelWeek.text = weekArray[weekday-1];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];

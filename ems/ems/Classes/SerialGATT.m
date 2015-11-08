@@ -134,6 +134,11 @@
         //[manager scanForPeripheralsWithServices:[NSArray arrayWithObject:serviceUUID] options:0]; // start Scanning
         [self startScan];
     }
+    else
+    {
+        activePeripheral = nil;
+        [peripherals removeAllObjects];
+    }
     //TODO: to handle the state updates
 }
 
@@ -194,6 +199,7 @@
     if(activePeripheral != nil)
     [delegate setDisconnect];
     activePeripheral = nil;
+    [peripherals removeObject:peripheral];
     [self startScan];
 }
 

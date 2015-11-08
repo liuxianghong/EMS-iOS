@@ -22,8 +22,9 @@
                     </navigationBar>
                     <connections>
                         <segue destination="LA1-44-K6y" kind="relationship" relationship="rootViewController" id="9mI-iu-xcK"/>
-                        <segue destination="MW4-ho-TnB" kind="presentation" identifier="Login" id="aAl-hR-nzy"/>
+                        <segue destination="MW4-ho-TnB" kind="presentation" identifier="Login" animates="NO" id="aAl-hR-nzy"/>
                         <segue destination="zsL-GN-21I" kind="presentation" identifier="wlcomeHelp" animates="NO" id="IY3-Vi-91f"/>
+                        <segue destination="stV-Eu-Rvb" kind="presentation" identifier="detailSee" animates="NO" modalPresentationStyle="overCurrentContext" id="OLU-Fg-1g3"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iKt-RX-WiS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4007,12 +4008,59 @@
             </objects>
             <point key="canvasLocation" x="1977" y="2551.5"/>
         </scene>
+        <!--Detal See View Controller-->
+        <scene sceneID="sc0-gW-VMB">
+            <objects>
+                <viewController storyboardIdentifier="detailSee" id="stV-Eu-Rvb" customClass="DetalSeeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="d79-ng-US9"/>
+                        <viewControllerLayoutGuide type="bottom" id="sTc-2l-P7i"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Nfy-yb-y7H">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_paster_details.png" translatesAutoresizingMaskIntoConstraints="NO" id="EQa-sn-YR3">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="0.66666666669999997" alpha="0.5" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EQa-sn-YR3" firstAttribute="centerY" secondItem="Nfy-yb-y7H" secondAttribute="centerY" id="Grf-Tp-FwB"/>
+                            <constraint firstItem="EQa-sn-YR3" firstAttribute="centerX" secondItem="Nfy-yb-y7H" secondAttribute="centerX" id="Iaw-Aj-YLP"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="EQa-sn-YR3"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Grf-Tp-FwB"/>
+                                <exclude reference="Iaw-Aj-YLP"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="EQa-sn-YR3"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Grf-Tp-FwB"/>
+                                <include reference="Iaw-Aj-YLP"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jxG-kb-LhE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-21" y="-456"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bg_guide1.png" width="1080" height="1920"/>
         <image name="bg_guide2.png" width="1080" height="1920"/>
         <image name="bg_guide3.png" width="553" height="983"/>
         <image name="bg_guide4.png" width="531" height="941"/>
+        <image name="bg_paster_details.png" width="300" height="319"/>
         <image name="ic_header_icon.png" width="100" height="95"/>
         <image name="ic_menu_icon.png" width="61" height="53"/>
         <image name="ic_send_code_normal.png" width="206" height="54"/>

@@ -16,6 +16,7 @@
 @implementation LeftTableViewController
 {
     NSArray *tableArray;
+    UILabel *nickNameLabel;
 }
 
 - (void)viewDidLoad {
@@ -34,6 +35,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    nickNameLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"nickname"];
 }
 
 #pragma mark - Table view data source
@@ -56,6 +63,7 @@
     if (indexPath.row == 0) {
         NSString *identifier = @"headIdentifier";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+        nickNameLabel = [cell viewWithTag:1];
         return cell;
     }
     else

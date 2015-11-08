@@ -23,7 +23,7 @@
     UIViewController *leftController = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"LeftViewController"];
     UIViewController *rightController = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"RightViewController"];
     self.containerController = [[IIViewDeckController alloc] initWithCenterViewController:centerController leftViewController:leftController rightViewController:rightController];
-    self.containerController.rightSize = 100;
+    self.containerController.rightSize = 80;
     self.containerController.leftSize = 100;
     self.containerController.view.frame = self.view.bounds;
     self.containerController.shadowEnabled = NO;

@@ -11,10 +11,10 @@
 
 #define kErrorEmpty @"服务器返回错误"
 #define kErrorConnect @"无法连接到服务器"
-#define baseURL @"http://121.42.25.67:8080/ems/"
-#define resourceSeeURL @"http://121.42.25.67:8080/emsResource/"
-#define resourceURL @"http://121.42.25.67:8080/emsResource/image?image="
-#define uploadResourceURL @"http://121.42.25.67:8080/ems/image"
+#define baseURL @"http://120.25.159.193:8080/ems"
+#define resourceSeeURL @"http://120.25.159.193:8080/emsemsResource/"
+#define resourceURL @"http://120.25.159.193:8080/emsemsResource/image?image="
+#define uploadResourceURL @"http://120.25.159.193:8080/emsemsResource/image"
 
 @implementation BaseHTTPRequestOperationManager
 + (BaseHTTPRequestOperationManager *)sharedManager

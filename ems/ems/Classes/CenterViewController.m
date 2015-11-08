@@ -13,7 +13,7 @@
 #import "DateScrollView.h"
 #import "TimeScrollView.h"
 
-@interface CenterViewController ()<BTSmartSensorDelegate>
+@interface CenterViewController ()<BTSmartSensorDelegate,DateScrollViewDelegate>
 @property (strong, nonatomic) SerialGATT *sensor;
 @property (nonatomic, retain) NSMutableArray *peripheralViewControllerArray;
 @property (nonatomic,weak) IBOutlet UIView *viewcolor1;
@@ -65,7 +65,7 @@
     
     
     printf("now we are searching device...\n");
-    array = @[@[@"瘦身",[UIColor blueColor]],@[@"放松",[UIColor yellowColor]],@[@"塑形",[UIColor redColor]]];
+    array = @[@[@"瘦身",[UIColor blueColor],@(0x80)],@[@"放松",[UIColor yellowColor],@(0x81)],@[@"塑形",[UIColor redColor],@(0x82)]];
     selecttag = 1;
     [self updateButton];
     [self updateStarButton];
@@ -94,12 +94,18 @@
 {
     selecttag--;
     [self updateButton];
+    if (self.buttondo.selected) {
+        [self beginSatr:YES];
+    }
 }
 
 -(IBAction)buttonbottomclick:(id)sender
 {
     selecttag++;
     [self updateButton];
+    if (self.buttondo.selected) {
+        [self beginSatr:YES];
+    }
 }
 
 -(void)updateButton
@@ -129,6 +135,7 @@
 {
     sender.selected = !sender.selected;
     [self updateStarButton];
+    [self beginSatr:sender.selected];
 }
 
 -(IBAction)lessClick:(id)sender
@@ -137,6 +144,7 @@
         return;
     }
     rectViewSmall.power = rectViewSmall.power-1;
+    [self beginSatr:YES];
 }
 
 -(IBAction)addClick:(id)sender
@@ -145,17 +153,61 @@
         return;
     }
     rectViewSmall.power = rectViewSmall.power+1;
+    [self beginSatr:YES];
 }
 
 -(IBAction)moreClick:(id)sender
 {
     [self.viewDeckController openLeftViewAnimated:YES];
 }
+
+//send data
+-(void)beginSatr:(BOOL)bo
+{
+    char byete[10] = {0x55,0xAA,0x02,0};
+    int length = 5;
+    if (bo) {
+        NSInteger tag = selecttag%3;
+        byete[3] = [array[tag][2] integerValue];
+        byete[4] = rectViewSmall.power;
+    }
+    else
+    {
+        length = 4;
+        byete[2] = 0x01;
+        byete[3] = 0x83;
+    }
+    NSData *data = [NSData dataWithBytes:byete length:length];
+    [self sendMsgToArduino:data];
+}
+
+
+- (void)sendMsgToArduino:(NSData *)data {
+    if(data.length > 20)
+    {
+        int i = 0;
+        while ((i + 1) * 20 <= data.length) {
+            NSData *dataSend = [data subdataWithRange:NSMakeRange(i * 20, 20)];
+            [sensor write:sensor.activePeripheral data:dataSend];
+            i++;
+        }
+        i = data.length % 20;
+        if(i > 0)
+        {
+            NSData *dataSend = [data subdataWithRange:NSMakeRange(data.length - i, i)];
+            [sensor write:sensor.activePeripheral data:dataSend];
+        }
+    }
+    else
+    {
+        [sensor write:sensor.activePeripheral data:data];
+    }
+}
 #pragma mark - HMSoftSensorDelegate
 
 -(void) peripheralFound:(CBPeripheral *)peripheral
 {
-    [peripheralViewControllerArray addObject:peripheral];
+//    [peripheralViewControllerArray addObject:peripheral];
 //    if (sensor.activePeripheral && sensor.activePeripheral != controller.peripheral) {
 //        [sensor disconnect:sensor.activePeripheral];
 //    }
@@ -164,7 +216,7 @@
     [sensor stopScan];
 }
 
-- (void) serialGATTCharValueUpdated: (NSString *)UUID value: (NSData *)data
+- (void)serialGATTCharValueUpdated: (NSString *)UUID value: (NSData *)data
 {
     NSLog(@"%@",data.description);
     //NSData *dataSend = [data subdataWithRange:NSMakeRange(i * 20, 20)];
@@ -177,6 +229,13 @@
 
 - (void) setDisconnect
 {
+}
+
+
+-(void)didSelectDate:(NSDate *)date isToday:(BOOL)bo
+{
+    self.view1.hidden = !bo;
+    self.view2.hidden = bo;
 }
 /*
 #pragma mark - Navigation

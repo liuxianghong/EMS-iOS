@@ -89,7 +89,10 @@
     NSInteger tag = self.contentOffset.x/(self.width/7)+f;
     currentPoint = CGPointMake(self.width/7*tag, 0);
     [self setContentOffset:currentPoint animated:YES];
-    
+    if (self.dateScrolldelegate) {
+        BOOL bo = ((maxDateView-7) == tag);
+        [self.dateScrolldelegate didSelectDate:[NSDate date] isToday:bo];
+    }
 }
 /*
 // Only override drawRect: if you perform custom drawing.
