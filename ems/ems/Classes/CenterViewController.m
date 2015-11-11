@@ -163,7 +163,7 @@
 
 -(IBAction)momentsClick:(id)sender{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Other" bundle:nil];
-    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"MomentsVC"];
+    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"MomentsNewVC"];//MomentsVC
     [self.viewDeckController.theNavigationController pushViewController:vc animated:YES];
 }
 

@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol MomentsTableViewCellDelegate<NSObject>
+-(void)doComment:(NSDictionary *)dic;
+@end
+
 @interface MomentsTableViewCell : UITableViewCell
 @property (nonatomic,weak) IBOutlet UIImageView *headImageView;
 @property (nonatomic,weak) IBOutlet UILabel *nameLabel;
@@ -17,5 +21,12 @@
 @property (nonatomic,weak) IBOutlet UIButton *goodbutton;
 @property (nonatomic,weak) IBOutlet UIButton *saybutton;
 @property (nonatomic,weak) IBOutlet UICollectionView *collectionView;
+@property (nonatomic,weak) IBOutlet UILabel *sayLabel;
+
+@property (nonatomic,weak) IBOutlet UIView *commentView;
+@property (nonatomic,weak) IBOutlet UIButton *commentButton;
+@property (nonatomic,weak) IBOutlet UITextField *commentField;
 @property (nonatomic,strong) NSDictionary *dic;
+
+@property (nonatomic,weak) IBOutlet id<MomentsTableViewCellDelegate> delegate;
 @end

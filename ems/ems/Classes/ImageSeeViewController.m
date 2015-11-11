@@ -7,6 +7,9 @@
 //
 
 #import "ImageSeeViewController.h"
+#import <UIImageView+WebCache.h>
+#import "ImageSeeViewController.h"
+#import "EMSAPI.h"
 
 @interface ImageSeeViewController ()
 
@@ -17,6 +20,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if (self.imageName) {
+        [self.imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",emsresourceURL,self.imageName]] placeholderImage:nil];
+    }
+    else
+    {
+        self.imageView.image = self.image;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

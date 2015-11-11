@@ -16,6 +16,9 @@
 #define kMethodUpdateUserInfo @"/user/updateUserInfo"
 #define kMethodUpdateHeadImage @"/user/updateHeadImage"
 #define kMethodGetMyFriendsCirCleList @"/friendsCircle/getMyFriendsCirCleList"
+#define kMethodFriendsCirclePraise @"/friendsCircle/friendsCirclePraise"
+#define kMethodPublishComment @"/friendsCircle/publishComment"
+#define kMethodInsertFriendsCircle @"/friendsCircle/insertFriendsCircle"
 
 @implementation EMSAPI
 
@@ -71,5 +74,21 @@
 + (void)getMyFriendsCirCleListWithParameters: (id)parameters success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
 {
     [[self sharedManager]defaultHTTPWithMethod:kMethodGetMyFriendsCirCleList WithParameters:parameters post:YES success:success failure:failure];
+}
+
++ (void)friendsCirclePraiseWithParameters: (id)parameters success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    [[self sharedManager]defaultHTTPWithMethod:kMethodFriendsCirclePraise WithParameters:parameters post:YES success:success failure:failure];
+}
+
++ (void)PublishCommentWithParameters: (id)parameters success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    [[self sharedManager]defaultHTTPWithMethod:kMethodPublishComment WithParameters:parameters post:YES success:success failure:failure];
+}
+
++ (void)insertFriendsCircleWithParameters: (id)parameters success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    
+    [[self sharedManager]defaultHTTPWithMethod:kMethodInsertFriendsCircle WithParameters:parameters post:YES success:success failure:failure];
 }
 @end

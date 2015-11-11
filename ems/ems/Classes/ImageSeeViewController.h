@@ -10,4 +10,6 @@
 
 @interface ImageSeeViewController : UIViewController
 @property (nonatomic,weak) IBOutlet UIImageView *imageView;
+@property (nonatomic,strong) IBOutlet NSString *imageName;
+@property (nonatomic,strong) IBOutlet UIImage *image;
 @end

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B1018E822D61076E8D8D185A"
+               BlueprintIdentifier = "246E7E5FD3B1D7C7B7C1B259"
                BuildableName = "libPods-ems-IHKeyboardAvoiding.a"
                BlueprintName = "Pods-ems-IHKeyboardAvoiding"
                ReferencedContainer = "container:Pods.xcodeproj">

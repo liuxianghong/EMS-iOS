@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "910D3F07237E242969AF30AA"
+               BlueprintIdentifier = "850640DFAD81D3FE5B5D7B00"
                BuildableName = "libPods-ems-RBStoryboardLink.a"
                BlueprintName = "Pods-ems-RBStoryboardLink"
                ReferencedContainer = "container:Pods.xcodeproj">

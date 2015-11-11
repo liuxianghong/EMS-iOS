@@ -99,6 +99,12 @@
 		D375C86B1BF254CF00AD2225 /* MomentsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D375C86A1BF254CF00AD2225 /* MomentsCollectionViewCell.m */; };
 		D375C86D1BF3072400AD2225 /* avator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D375C86C1BF3072400AD2225 /* avator@2x.png */; };
 		D375C8701BF32F4700AD2225 /* ImageSeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D375C86F1BF32F4700AD2225 /* ImageSeeViewController.m */; };
+		D375C8721BF3449700AD2225 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D375C8711BF3449700AD2225 /* MJRefresh.bundle */; };
+		D375C8741BF34EFA00AD2225 /* black.png in Resources */ = {isa = PBXBuildFile; fileRef = D375C8731BF34EFA00AD2225 /* black.png */; };
+		D375C8761BF3728100AD2225 /* InputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D375C8751BF3728100AD2225 /* InputView.xib */; };
+		D375C8791BF3732D00AD2225 /* InputView.m in Sources */ = {isa = PBXBuildFile; fileRef = D375C8781BF3732D00AD2225 /* InputView.m */; };
+		D375C87C1BF37DBD00AD2225 /* MomentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D375C87B1BF37DBD00AD2225 /* MomentsViewController.m */; };
+		D375C87F1BF39AC500AD2225 /* PublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D375C87E1BF39AC500AD2225 /* PublishViewController.m */; };
 		D3A9DFBF1B95A72C000C846B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A9DFBE1B95A72C000C846B /* MainViewController.m */; };
 		D3A9DFC21B96A551000C846B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A9DFC11B96A551000C846B /* LoginViewController.m */; };
 		D3A9DFC51B96B973000C846B /* EMSAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A9DFC41B96B973000C846B /* EMSAPI.m */; };
@@ -253,6 +259,15 @@
 		D375C86C1BF3072400AD2225 /* avator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avator@2x.png"; sourceTree = "<group>"; };
 		D375C86E1BF32F4700AD2225 /* ImageSeeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSeeViewController.h; sourceTree = "<group>"; };
 		D375C86F1BF32F4700AD2225 /* ImageSeeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSeeViewController.m; sourceTree = "<group>"; };
+		D375C8711BF3449700AD2225 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
+		D375C8731BF34EFA00AD2225 /* black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black.png; sourceTree = "<group>"; };
+		D375C8751BF3728100AD2225 /* InputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputView.xib; sourceTree = "<group>"; };
+		D375C8771BF3732D00AD2225 /* InputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputView.h; sourceTree = "<group>"; };
+		D375C8781BF3732D00AD2225 /* InputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputView.m; sourceTree = "<group>"; };
+		D375C87A1BF37DBD00AD2225 /* MomentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentsViewController.h; sourceTree = "<group>"; };
+		D375C87B1BF37DBD00AD2225 /* MomentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentsViewController.m; sourceTree = "<group>"; };
+		D375C87D1BF39AC500AD2225 /* PublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishViewController.h; sourceTree = "<group>"; };
+		D375C87E1BF39AC500AD2225 /* PublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishViewController.m; sourceTree = "<group>"; };
 		D3A9DFBD1B95A72C000C846B /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		D3A9DFBE1B95A72C000C846B /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		D3A9DFC01B96A551000C846B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -385,6 +400,10 @@
 				D375C8641BF2470800AD2225 /* MomentsTableViewController.m */,
 				D375C86E1BF32F4700AD2225 /* ImageSeeViewController.h */,
 				D375C86F1BF32F4700AD2225 /* ImageSeeViewController.m */,
+				D375C87A1BF37DBD00AD2225 /* MomentsViewController.h */,
+				D375C87B1BF37DBD00AD2225 /* MomentsViewController.m */,
+				D375C87D1BF39AC500AD2225 /* PublishViewController.h */,
+				D375C87E1BF39AC500AD2225 /* PublishViewController.m */,
 			);
 			name = Center;
 			sourceTree = "<group>";
@@ -407,6 +426,8 @@
 		D367AA1F1BE9FC80007C5D41 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				D375C8731BF34EFA00AD2225 /* black.png */,
+				D375C8711BF3449700AD2225 /* MJRefresh.bundle */,
 				D375C86C1BF3072400AD2225 /* avator@2x.png */,
 				D367AA201BE9FC80007C5D41 /* drawable-hdpi */,
 				D367AA241BE9FC80007C5D41 /* drawable-xhdpi */,
@@ -515,6 +536,9 @@
 				D367AAAE1BED037E007C5D41 /* DateView.h */,
 				D367AAAF1BED037E007C5D41 /* DateView.m */,
 				D367AAB11BED0399007C5D41 /* DateView.xib */,
+				D375C8751BF3728100AD2225 /* InputView.xib */,
+				D375C8771BF3732D00AD2225 /* InputView.h */,
+				D375C8781BF3732D00AD2225 /* InputView.m */,
 				D367AAB31BED2B00007C5D41 /* ModelButton.h */,
 				D367AAB41BED2B00007C5D41 /* ModelButton.m */,
 				D375C8661BF24F7100AD2225 /* MomentsTableViewCell.h */,
@@ -729,7 +753,6 @@
 				TargetAttributes = {
 					D3F116CC1B65E40C008D1E22 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = F44XSCNJGN;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -810,8 +833,10 @@
 				D367AA881BE9FC80007C5D41 /* ic_sex_select@2x.png in Resources */,
 				D367AA721BE9FC80007C5D41 /* ic_header_icon.png in Resources */,
 				D367AA6C1BE9FC80007C5D41 /* bg_model_back.png in Resources */,
+				D375C8721BF3449700AD2225 /* MJRefresh.bundle in Resources */,
 				D367AA621BE9FC80007C5D41 /* ic_play_pressed.png in Resources */,
 				D367AA5A1BE9FC80007C5D41 /* bg_paster_details.png in Resources */,
+				D375C8741BF34EFA00AD2225 /* black.png in Resources */,
 				D367AA761BE9FC80007C5D41 /* ic_loading_icon.png in Resources */,
 				D375C86D1BF3072400AD2225 /* avator@2x.png in Resources */,
 				D367AA841BE9FC80007C5D41 /* ic_send_code_normal.png in Resources */,
@@ -826,6 +851,7 @@
 				D367AA691BE9FC80007C5D41 /* bg_guide4.png in Resources */,
 				D3F116E11B65E40C008D1E22 /* Images.xcassets in Resources */,
 				D367AA7B1BE9FC80007C5D41 /* ic_menu_icon.png in Resources */,
+				D375C8761BF3728100AD2225 /* InputView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -884,6 +910,7 @@
 				D30B1A591B9DF725005D452C /* HomeViewController.m in Sources */,
 				D367AA9B1BEA104A007C5D41 /* WelcomeHelpViewController.m in Sources */,
 				D3E809161B789E6000001B90 /* BaseHTTPRequestOperationManager.m in Sources */,
+				D375C87F1BF39AC500AD2225 /* PublishViewController.m in Sources */,
 				D30B1A351B9D4820005D452C /* RegsterBirthdayViewController.m in Sources */,
 				D367AAA71BECA7FD007C5D41 /* RectView.m in Sources */,
 				D3E809191B789EAB00001B90 /* NSString+scisky.m in Sources */,
@@ -893,10 +920,12 @@
 				D30B1A421B9D831D005D452C /* RegisterFinishViewController.m in Sources */,
 				D3A9DFC81B96BEA7000C846B /* RegisterNameViewController.m in Sources */,
 				D30B1A3C1B9D51E2005D452C /* ZHRulerView.m in Sources */,
+				D375C8791BF3732D00AD2225 /* InputView.m in Sources */,
 				D31BAD121BF1CD6700782E40 /* PersonDetailTableViewController.m in Sources */,
 				D367AAB81BED2C69007C5D41 /* RightViewController.m in Sources */,
 				D3F116D61B65E40C008D1E22 /* AppDelegate.m in Sources */,
 				D3A9DFBF1B95A72C000C846B /* MainViewController.m in Sources */,
+				D375C87C1BF37DBD00AD2225 /* MomentsViewController.m in Sources */,
 				D30B1A321B9D46D4005D452C /* RegistWeightViewController.m in Sources */,
 				D30B1A2F1B9D45C9005D452C /* RegisterHeightViewController.m in Sources */,
 				D30B1A3F1B9D6F70005D452C /* RegisterLoginNameViewController.m in Sources */,
@@ -1039,7 +1068,7 @@
 			baseConfigurationReference = 26977CF825E73C51D0D5A76F /* Pods-ems.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Blackit Marketing Limited";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PREFIX_HEADER = "ems/ems-Prefix.pch";
 				INFOPLIST_FILE = ems/Info.plist;
@@ -1047,7 +1076,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.utlife.Where-sBaby";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "77e8708d-07fd-4d99-b3c2-409ad268462f";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1056,7 +1085,7 @@
 			baseConfigurationReference = E7F266C7E6D3B1D3D0F1B4CA /* Pods-ems.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Blackit Marketing Limited";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PREFIX_HEADER = "ems/ems-Prefix.pch";
 				INFOPLIST_FILE = ems/Info.plist;
@@ -1064,7 +1093,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.utlife.Where-sBaby";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "77e8708d-07fd-4d99-b3c2-409ad268462f";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
