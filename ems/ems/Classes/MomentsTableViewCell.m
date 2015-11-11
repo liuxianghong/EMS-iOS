@@ -71,7 +71,7 @@
     MomentsCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
     cell.backgroundColor = [UIColor blackColor];
     NSArray *images = self.dic[@"images"];
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",emsresourceURL,images[indexPath.row]]] placeholderImage:[UIImage imageNamed:@"avator.png"]];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",emsresourceURL,images[indexPath.row]]] placeholderImage:nil];//[UIImage imageNamed:@"avator.png"]
     return cell;
 }
 

@@ -1058,7 +1058,7 @@
                             <color key="backgroundColor" red="0.24313725489999999" green="0.65490196079999996" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" rowHeight="296" id="Jkz-h2-AIt" customClass="MomentsTableViewCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="reuseIdentifier" rowHeight="296" id="Jkz-h2-AIt" customClass="MomentsTableViewCell">
                                 <rect key="frame" x="0.0" y="178" width="600" height="312"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jkz-h2-AIt" id="bW1-9L-mUe">
@@ -1147,7 +1147,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="88" height="88"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avator.png" translatesAutoresizingMaskIntoConstraints="NO" id="wv5-lF-vnf">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wv5-lF-vnf">
                                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                                 <animations/>
                                                             </imageView>
@@ -1339,9 +1339,63 @@
             </objects>
             <point key="canvasLocation" x="1770" y="342.75"/>
         </scene>
+        <!--Image See View Controller-->
+        <scene sceneID="V7Z-Io-4FD">
+            <objects>
+                <viewController id="ZVV-l5-AaX" customClass="ImageSeeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y5G-qL-T11"/>
+                        <viewControllerLayoutGuide type="bottom" id="ulU-eg-Jjr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6vY-Zu-s40">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0uJ-vp-Lvy">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="80" y="419" width="240" height="128"/>
+                                </variation>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0uJ-vp-Lvy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6vY-Zu-s40" secondAttribute="leading" id="Rqi-wO-HDH"/>
+                            <constraint firstItem="0uJ-vp-Lvy" firstAttribute="centerY" secondItem="6vY-Zu-s40" secondAttribute="centerY" id="jTp-yY-1fb"/>
+                            <constraint firstItem="0uJ-vp-Lvy" firstAttribute="centerX" secondItem="6vY-Zu-s40" secondAttribute="centerX" id="ruf-YO-dZi"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="0uJ-vp-Lvy"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Rqi-wO-HDH"/>
+                                <exclude reference="jTp-yY-1fb"/>
+                                <exclude reference="ruf-YO-dZi"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="0uJ-vp-Lvy"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Rqi-wO-HDH"/>
+                                <include reference="jTp-yY-1fb"/>
+                                <include reference="ruf-YO-dZi"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="0uJ-vp-Lvy" id="uEd-t1-PYe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LuS-Ef-v6q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2700" y="355.5"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="avator.png" width="50" height="50"/>
         <image name="ic_login_icon.png" width="202" height="191"/>
         <image name="ic_my_mark.png" width="100" height="100"/>
         <image name="ic_sex_no_select.png" width="15" height="15"/>

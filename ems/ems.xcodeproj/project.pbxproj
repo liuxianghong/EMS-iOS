@@ -98,6 +98,7 @@
 		D375C8681BF24F7100AD2225 /* MomentsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D375C8671BF24F7100AD2225 /* MomentsTableViewCell.m */; };
 		D375C86B1BF254CF00AD2225 /* MomentsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D375C86A1BF254CF00AD2225 /* MomentsCollectionViewCell.m */; };
 		D375C86D1BF3072400AD2225 /* avator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D375C86C1BF3072400AD2225 /* avator@2x.png */; };
+		D375C8701BF32F4700AD2225 /* ImageSeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D375C86F1BF32F4700AD2225 /* ImageSeeViewController.m */; };
 		D3A9DFBF1B95A72C000C846B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A9DFBE1B95A72C000C846B /* MainViewController.m */; };
 		D3A9DFC21B96A551000C846B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A9DFC11B96A551000C846B /* LoginViewController.m */; };
 		D3A9DFC51B96B973000C846B /* EMSAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A9DFC41B96B973000C846B /* EMSAPI.m */; };
@@ -250,6 +251,8 @@
 		D375C8691BF254CF00AD2225 /* MomentsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentsCollectionViewCell.h; sourceTree = "<group>"; };
 		D375C86A1BF254CF00AD2225 /* MomentsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentsCollectionViewCell.m; sourceTree = "<group>"; };
 		D375C86C1BF3072400AD2225 /* avator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avator@2x.png"; sourceTree = "<group>"; };
+		D375C86E1BF32F4700AD2225 /* ImageSeeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSeeViewController.h; sourceTree = "<group>"; };
+		D375C86F1BF32F4700AD2225 /* ImageSeeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSeeViewController.m; sourceTree = "<group>"; };
 		D3A9DFBD1B95A72C000C846B /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		D3A9DFBE1B95A72C000C846B /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		D3A9DFC01B96A551000C846B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -380,6 +383,8 @@
 				D30B1A671B9DF981005D452C /* CenterViewController.m */,
 				D375C8631BF2470800AD2225 /* MomentsTableViewController.h */,
 				D375C8641BF2470800AD2225 /* MomentsTableViewController.m */,
+				D375C86E1BF32F4700AD2225 /* ImageSeeViewController.h */,
+				D375C86F1BF32F4700AD2225 /* ImageSeeViewController.m */,
 			);
 			name = Center;
 			sourceTree = "<group>";
@@ -896,6 +901,7 @@
 				D30B1A2F1B9D45C9005D452C /* RegisterHeightViewController.m in Sources */,
 				D30B1A3F1B9D6F70005D452C /* RegisterLoginNameViewController.m in Sources */,
 				D367AAA11BEA6DC1007C5D41 /* TopView.m in Sources */,
+				D375C8701BF32F4700AD2225 /* ImageSeeViewController.m in Sources */,
 				D3A9DFCB1B96D559000C846B /* RegisterSexViewController.m in Sources */,
 				D367AA971BEA0DF4007C5D41 /* UIView+AHKit.m in Sources */,
 				D375C8681BF24F7100AD2225 /* MomentsTableViewCell.m in Sources */,
