@@ -161,6 +161,15 @@
     [self.viewDeckController openLeftViewAnimated:YES];
 }
 
+-(IBAction)momentsClick:(id)sender{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Other" bundle:nil];
+    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"MomentsVC"];
+    [self.viewDeckController.theNavigationController pushViewController:vc animated:YES];
+}
+
+-(IBAction)historyClick:(id)sender{
+    //MomentsVC
+}
 //send data
 -(void)beginSatr:(BOOL)bo
 {

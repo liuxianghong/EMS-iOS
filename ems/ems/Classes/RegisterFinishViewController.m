@@ -151,7 +151,7 @@
             break;
         case 1:
         {
-            self.wightField.text = [NSString stringWithFormat:@"%ldcm",[wightPickView selectedRowInComponent:0]%350+20];
+            self.wightField.text = [NSString stringWithFormat:@"%ldkg",[wightPickView selectedRowInComponent:0]%350+20];
             [UserManager sharedManager].registerModel.weight = [NSString stringWithFormat:@"%ld",[wightPickView selectedRowInComponent:0]%350+20];
         }
             break;

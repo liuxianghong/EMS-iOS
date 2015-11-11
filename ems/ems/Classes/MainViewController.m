@@ -34,11 +34,11 @@
     }
     else
     {
-        static BOOL isFirst = YES;
-        if (isFirst) {
-            [self performSegueWithIdentifier:@"Login" sender:nil];
-        }
-        isFirst = NO;
+//        static BOOL isFirst = YES;
+//        if (isFirst) {
+//            [self performSegueWithIdentifier:@"Login" sender:nil];
+//        }
+//        isFirst = NO;
     }
     //    [super viewDidAppear:animated];
     //    if (![[NSUserDefaults standardUserDefaults]objectForKey:@"token"]) {

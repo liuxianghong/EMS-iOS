@@ -29,18 +29,19 @@
     self.containerController.shadowEnabled = NO;
     self.containerController.theNavigationController = self.navigationController;
     [self.view addSubview:self.containerController.view];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    //[self.navigationController setNavigationBarHidden:YES animated:YES];
     [super viewWillAppear:animated];
     self.containerController.view.frame = self.view.bounds;
 }
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    //[self.navigationController setNavigationBarHidden:NO animated:YES];
     [super viewWillDisappear:animated];
 }
 

@@ -13,7 +13,9 @@
 #define kMethodUserLogin @"/user/userLogin"
 #define kMethodForgetPassword @"/user/forgetPassword"
 #define kMethodResetPassWord @"/user/resetPassWord"
-
+#define kMethodUpdateUserInfo @"/user/updateUserInfo"
+#define kMethodUpdateHeadImage @"/user/updateHeadImage"
+#define kMethodGetMyFriendsCirCleList @"/friendsCircle/getMyFriendsCirCleList"
 
 @implementation EMSAPI
 
@@ -49,5 +51,25 @@
 + (void)ResetPassWordWithParameters: (id)parameters success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
 {
     [[self sharedManager]defaultHTTPWithMethod:kMethodResetPassWord WithParameters:parameters post:YES success:success failure:failure];
+}
+
++ (void)UpdateUserInfoWithParameters: (id)parameters success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    [[self sharedManager]defaultHTTPWithMethod:kMethodUpdateUserInfo WithParameters:parameters post:YES success:success failure:failure];
+}
+
++ (void)updateHeadImageWithParameters: (id)parameters success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    [[self sharedManager]defaultHTTPWithMethod:kMethodUpdateHeadImage WithParameters:parameters post:YES success:success failure:failure];
+}
+
++(void)UploadImage:(UIImage *)image success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    [[self sharedManager] filePostWithUrl:uploadResourceURL WithParameters:UIImageJPEGRepresentation(image, 0.8) success:success failure:failure];
+}
+
++ (void)getMyFriendsCirCleListWithParameters: (id)parameters success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    [[self sharedManager]defaultHTTPWithMethod:kMethodGetMyFriendsCirCleList WithParameters:parameters post:YES success:success failure:failure];
 }
 @end

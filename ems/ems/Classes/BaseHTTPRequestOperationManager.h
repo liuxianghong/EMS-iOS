@@ -8,6 +8,9 @@
 
 #import "AFHTTPRequestOperationManager.h"
 
+#define uploadResourceURL @"http://120.25.159.193:8080/emsResource/image"
+#define emsresourceURL @"http://120.25.159.193:8080/emsResource/image?image="
+
 @interface BaseHTTPRequestOperationManager : AFHTTPRequestOperationManager
 + (BaseHTTPRequestOperationManager *)sharedManager;
 - (void)defaultHTTPWithMethod:(NSString *)method WithParameters:(id)parameters  post:(BOOL)bo success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;

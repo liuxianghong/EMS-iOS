@@ -8,15 +8,18 @@
 
 #import "LeftTableViewController.h"
 #import "LeftTableViewCell.h"
+#import "IIViewDeckController.h"
+#import "EMSAPI.h"
+#import <UIImageView+WebCache.h>
 
 @interface LeftTableViewController ()
-
 @end
 
 @implementation LeftTableViewController
 {
     NSArray *tableArray;
     UILabel *nickNameLabel;
+    UIImageView *imageView;
 }
 
 - (void)viewDidLoad {
@@ -41,6 +44,7 @@
 {
     [super viewWillAppear:animated];
     nickNameLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"nickname"];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",emsresourceURL,[[NSUserDefaults standardUserDefaults] objectForKey:@"headimage"]]] placeholderImage:imageView.image];
 }
 
 #pragma mark - Table view data source
@@ -64,6 +68,7 @@
         NSString *identifier = @"headIdentifier";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
         nickNameLabel = [cell viewWithTag:1];
+        imageView = [cell viewWithTag:2];
         return cell;
     }
     else
@@ -79,6 +84,11 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == 1) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Other" bundle:nil];
+        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"personDetail"];
+        [self.viewDeckController.theNavigationController pushViewController:vc animated:YES];
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
