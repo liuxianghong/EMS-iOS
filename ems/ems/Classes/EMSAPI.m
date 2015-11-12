@@ -19,6 +19,11 @@
 #define kMethodFriendsCirclePraise @"/friendsCircle/friendsCirclePraise"
 #define kMethodPublishComment @"/friendsCircle/publishComment"
 #define kMethodInsertFriendsCircle @"/friendsCircle/insertFriendsCircle"
+#define kMethodGetFriendsConcernedByUserId @"/friendsCircle/getFriendsConcernedByUserId"
+#define kMethodGetFriendsUnConcernedListByUserId @"/friendsCircle/getFriendsUnConcernedList"
+#define kMethodFriendsConcern @"/friendsCircle/friendsConcern"
+#define kMethodGetTalkListByUserId @"/friendsCircle/getTalkListByUserId"
+#define kMethodGetCommentUnReadCount @"/friendsCircle/getCommentUnReadCount"
 
 @implementation EMSAPI
 
@@ -90,5 +95,34 @@
 {
     
     [[self sharedManager]defaultHTTPWithMethod:kMethodInsertFriendsCircle WithParameters:parameters post:YES success:success failure:failure];
+}
+
++ (void)getFriendsConcernedByUserIdWithParameters: (id)parameters success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    
+    [[self sharedManager]defaultHTTPWithMethod:kMethodGetFriendsConcernedByUserId WithParameters:parameters post:YES success:success failure:failure];
+}
+
++ (void)getFriendsUnConcernedListByUserIdWithParameters: (id)parameters success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    
+    [[self sharedManager]defaultHTTPWithMethod:kMethodGetFriendsUnConcernedListByUserId WithParameters:parameters post:YES success:success failure:failure];
+}
+
++ (void)friendsConcernWithParameters: (id)parameters success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    
+    [[self sharedManager]defaultHTTPWithMethod:kMethodFriendsConcern WithParameters:parameters post:YES success:success failure:failure];
+}
+
++ (void)getTalkListByUserIdWithParameters: (id)parameters success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    
+    [[self sharedManager]defaultHTTPWithMethod:kMethodGetTalkListByUserId WithParameters:parameters post:YES success:success failure:failure];
+}
+
++ (void)getCommentUnReadCountWithParameters: (id)parameters success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    [[self sharedManager]defaultHTTPWithMethod:kMethodGetCommentUnReadCount WithParameters:parameters post:YES success:success failure:failure];
 }
 @end

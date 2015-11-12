@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MomentsTableViewController : UITableViewController
-
+@property (nonatomic,strong) NSString *uID;
+@property (nonatomic,strong) NSString *uName;
+@property (nonatomic,strong) NSString *uHeadImage;
 @end

@@ -69,6 +69,8 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
         nickNameLabel = [cell viewWithTag:1];
         imageView = [cell viewWithTag:2];
+        imageView.layer.cornerRadius = 25;
+        imageView.layer.masksToBounds = YES;
         return cell;
     }
     else

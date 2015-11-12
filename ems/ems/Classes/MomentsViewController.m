@@ -12,6 +12,7 @@
 #import <MJRefresh.h>
 #import "InputView.h"
 #import <UIImageView+WebCache.h>
+#import "MomentsTableViewController.h"
 
 @interface MomentsViewController ()<UITextFieldDelegate,MomentsTableViewCellDelegate>
 @property (nonatomic,strong) NSMutableArray *tableViewArray;
@@ -20,6 +21,9 @@
 @property (nonatomic,strong) IBOutlet InputView *inputView;
 @property (nonatomic,weak) IBOutlet UIImageView *headImageView;
 @property (nonatomic,weak) IBOutlet UIView *moreView;
+@property (nonatomic,weak) IBOutlet UILabel *nameLabel;
+
+@property (nonatomic,weak) IBOutlet UIButton *messgUnreadButton;
 @end
 
 @implementation MomentsViewController
@@ -83,6 +87,8 @@
     self.headImageView .layer.masksToBounds = YES;
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",emsresourceURL,[[NSUserDefaults standardUserDefaults] objectForKey:@"headimage"]]] placeholderImage:self.headImageView.image];
     
+    self.nameLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"nickname"];
+    
     //当键盘出来的时候通过通知来获取键盘的信息
     //注册为键盘的监听着
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
@@ -140,6 +146,18 @@
         }];
         [self.tableView.mj_header beginRefreshing];
     }
+    
+    NSDictionary *dic = @{
+                          @"userid" : [[NSUserDefaults standardUserDefaults] objectForKey:@"id"]
+                          };
+    [EMSAPI getCommentUnReadCountWithParameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"state"] integerValue] == 0) {
+            NSInteger unread = [[responseObject[@"data"] firstObject][@"unread"] integerValue];
+            [self.messgUnreadButton setTitle:[NSString stringWithFormat:@"%ld消息",unread] forState:UIControlStateNormal];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
 }
 
 -(void)loadData{
@@ -194,6 +212,16 @@
     [center removeObserver:self name:UIKeyboardWillChangeFrameNotification object:nil];
 }
 
+-(IBAction)imageClick:(id)sender
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Other" bundle:nil];
+    MomentsTableViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"MomentsVC"];
+    vc.uID = [[NSUserDefaults standardUserDefaults] objectForKey:@"id"];
+    vc.uName = [[NSUserDefaults standardUserDefaults] objectForKey:@"nickname"];
+    vc.uHeadImage = [[NSUserDefaults standardUserDefaults] objectForKey:@"headimage"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 -(void)moreClick:(id)sender
 {
     self.moreView.hidden = !self.moreView.hidden;
@@ -202,6 +230,16 @@
 -(UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
+}
+
+-(void)doImageCick:(NSDictionary *)dic
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Other" bundle:nil];
+    MomentsTableViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"MomentsVC"];
+    vc.uID = dic[@"userid"];
+    vc.uName = dic[@"nickname"];
+    vc.uHeadImage = dic[@"headimage"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)doComment:(NSDictionary *)dic

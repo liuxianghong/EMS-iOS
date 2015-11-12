@@ -29,9 +29,11 @@
     //self.heightConstraint.constant = 100;
     self.collectionView.backgroundColor = [UIColor whiteColor];
     
-    self.commentButton.layer.borderWidth = 1;
-    self.commentButton.layer.borderColor = [UIColor blackColor].CGColor;
-    self.commentView.hidden = YES;
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(iamgeClick:)];
+    tapGestureRecognizer.cancelsTouchesInView = YES;
+    self.headImageView.userInteractionEnabled = YES;
+    [self.headImageView addGestureRecognizer:tapGestureRecognizer];
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -47,7 +49,16 @@
     
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",emsresourceURL,dic[@"headimage"]]] placeholderImage:[UIImage imageNamed:@"ic_login_icon.png"]];
     self.nameLabel.text = dic[@"nickname"];
-    self.timeLabel.text = dic[@"applytime"];
+    if(!self.goodbutton)
+    {
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss"];
+        NSDate *destDate= [dateFormatter dateFromString:dic[@"applytime"]];
+        [dateFormatter setDateFormat:@"dd/MM月"];
+        self.timeLabel.text = [dateFormatter stringFromDate:destDate];
+    }
+    else
+        self.timeLabel.text = dic[@"applytime"];
     self.filetitleLabel.text = dic[@"title"];
     self.contantsLabel.text = dic[@"content"];
     good = [dic[@"praisecount"]  integerValue];
@@ -113,7 +124,9 @@
 {
     //self.commentView.hidden = NO;
     //[self.commentField becomeFirstResponder];
-    [self.delegate doComment:self.dic];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(doComment:)]) {
+        [self.delegate doComment:self.dic];
+    }
 }
 
 - (UIViewController *)myViewController {
@@ -127,19 +140,14 @@
     return nil;
 }
 
--(IBAction)commentClick:(id)sender
-{
-    [self.commentField resignFirstResponder];
-    self.commentView.hidden = YES;
-    [self.delegate doComment:self.dic];
+-(IBAction)iamgeClick:(id)sender{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(doImageCick:)]) {
+        [self.delegate doImageCick:self.dic];
+    }
 }
 
 
 
--(void)textFieldDidEndEditing:(UITextField *)textField
-{
-    self.commentView.hidden = YES;
-}
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -159,6 +167,8 @@
     cell.backgroundColor = [UIColor blackColor];
     NSArray *images = self.dic[@"images"] ;
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",emsresourceURL,images[indexPath.row]]] placeholderImage:[UIImage imageNamed:@"black.png"]];//
+    [cell setNeedsLayout];
+    [cell layoutIfNeeded];
     return cell;
 }
 

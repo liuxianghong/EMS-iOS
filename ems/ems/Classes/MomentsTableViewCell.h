@@ -10,6 +10,7 @@
 
 @protocol MomentsTableViewCellDelegate<NSObject>
 -(void)doComment:(NSDictionary *)dic;
+-(void)doImageCick:(NSDictionary *)dic;
 @end
 
 @interface MomentsTableViewCell : UITableViewCell
@@ -23,9 +24,6 @@
 @property (nonatomic,weak) IBOutlet UICollectionView *collectionView;
 @property (nonatomic,weak) IBOutlet UILabel *sayLabel;
 
-@property (nonatomic,weak) IBOutlet UIView *commentView;
-@property (nonatomic,weak) IBOutlet UIButton *commentButton;
-@property (nonatomic,weak) IBOutlet UITextField *commentField;
 @property (nonatomic,strong) NSDictionary *dic;
 
 @property (nonatomic,weak) IBOutlet id<MomentsTableViewCellDelegate> delegate;

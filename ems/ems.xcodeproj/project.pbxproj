@@ -105,6 +105,9 @@
 		D375C8791BF3732D00AD2225 /* InputView.m in Sources */ = {isa = PBXBuildFile; fileRef = D375C8781BF3732D00AD2225 /* InputView.m */; };
 		D375C87C1BF37DBD00AD2225 /* MomentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D375C87B1BF37DBD00AD2225 /* MomentsViewController.m */; };
 		D375C87F1BF39AC500AD2225 /* PublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D375C87E1BF39AC500AD2225 /* PublishViewController.m */; };
+		D375C8821BF43C0D00AD2225 /* AttentionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D375C8811BF43C0D00AD2225 /* AttentionViewController.m */; };
+		D375C8851BF4636900AD2225 /* AttentionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D375C8841BF4636900AD2225 /* AttentionTableViewCell.m */; };
+		D375C8881BF4753700AD2225 /* AttentionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D375C8871BF4753700AD2225 /* AttentionListViewController.m */; };
 		D3A9DFBF1B95A72C000C846B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A9DFBE1B95A72C000C846B /* MainViewController.m */; };
 		D3A9DFC21B96A551000C846B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A9DFC11B96A551000C846B /* LoginViewController.m */; };
 		D3A9DFC51B96B973000C846B /* EMSAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A9DFC41B96B973000C846B /* EMSAPI.m */; };
@@ -268,6 +271,12 @@
 		D375C87B1BF37DBD00AD2225 /* MomentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentsViewController.m; sourceTree = "<group>"; };
 		D375C87D1BF39AC500AD2225 /* PublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishViewController.h; sourceTree = "<group>"; };
 		D375C87E1BF39AC500AD2225 /* PublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishViewController.m; sourceTree = "<group>"; };
+		D375C8801BF43C0D00AD2225 /* AttentionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttentionViewController.h; sourceTree = "<group>"; };
+		D375C8811BF43C0D00AD2225 /* AttentionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttentionViewController.m; sourceTree = "<group>"; };
+		D375C8831BF4636900AD2225 /* AttentionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttentionTableViewCell.h; sourceTree = "<group>"; };
+		D375C8841BF4636900AD2225 /* AttentionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttentionTableViewCell.m; sourceTree = "<group>"; };
+		D375C8861BF4753700AD2225 /* AttentionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttentionListViewController.h; sourceTree = "<group>"; };
+		D375C8871BF4753700AD2225 /* AttentionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttentionListViewController.m; sourceTree = "<group>"; };
 		D3A9DFBD1B95A72C000C846B /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		D3A9DFBE1B95A72C000C846B /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		D3A9DFC01B96A551000C846B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -404,6 +413,10 @@
 				D375C87B1BF37DBD00AD2225 /* MomentsViewController.m */,
 				D375C87D1BF39AC500AD2225 /* PublishViewController.h */,
 				D375C87E1BF39AC500AD2225 /* PublishViewController.m */,
+				D375C8801BF43C0D00AD2225 /* AttentionViewController.h */,
+				D375C8811BF43C0D00AD2225 /* AttentionViewController.m */,
+				D375C8861BF4753700AD2225 /* AttentionListViewController.h */,
+				D375C8871BF4753700AD2225 /* AttentionListViewController.m */,
 			);
 			name = Center;
 			sourceTree = "<group>";
@@ -545,6 +558,8 @@
 				D375C8671BF24F7100AD2225 /* MomentsTableViewCell.m */,
 				D375C8691BF254CF00AD2225 /* MomentsCollectionViewCell.h */,
 				D375C86A1BF254CF00AD2225 /* MomentsCollectionViewCell.m */,
+				D375C8831BF4636900AD2225 /* AttentionTableViewCell.h */,
+				D375C8841BF4636900AD2225 /* AttentionTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -927,6 +942,7 @@
 				D3A9DFBF1B95A72C000C846B /* MainViewController.m in Sources */,
 				D375C87C1BF37DBD00AD2225 /* MomentsViewController.m in Sources */,
 				D30B1A321B9D46D4005D452C /* RegistWeightViewController.m in Sources */,
+				D375C8821BF43C0D00AD2225 /* AttentionViewController.m in Sources */,
 				D30B1A2F1B9D45C9005D452C /* RegisterHeightViewController.m in Sources */,
 				D30B1A3F1B9D6F70005D452C /* RegisterLoginNameViewController.m in Sources */,
 				D367AAA11BEA6DC1007C5D41 /* TopView.m in Sources */,
@@ -943,6 +959,8 @@
 				D3A9DFC21B96A551000C846B /* LoginViewController.m in Sources */,
 				D3D9AE161B6F410800198007 /* BaseNavigationController.m in Sources */,
 				D3F116D91B65E40C008D1E22 /* ems.xcdatamodeld in Sources */,
+				D375C8881BF4753700AD2225 /* AttentionListViewController.m in Sources */,
+				D375C8851BF4636900AD2225 /* AttentionTableViewCell.m in Sources */,
 				D30B1A4F1B9DBBD1005D452C /* ForgetPWDoneViewController.m in Sources */,
 				D30B1A681B9DF981005D452C /* CenterViewController.m in Sources */,
 				D367AABB1BED2F25007C5D41 /* DetalSeeViewController.m in Sources */,
