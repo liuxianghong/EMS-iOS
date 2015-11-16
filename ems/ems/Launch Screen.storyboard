@@ -21,7 +21,7 @@
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lanch" translatesAutoresizingMaskIntoConstraints="NO" id="XDj-D2-rOr">
@@ -43,10 +43,10 @@
                                 <exclude reference="XDj-D2-rOr"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="pGs-Wi-Jdn"/>
                                 <exclude reference="a1C-Da-u26"/>
                                 <exclude reference="gdf-i5-n4x"/>
                                 <exclude reference="twx-nZ-xQO"/>
+                                <exclude reference="pGs-Wi-Jdn"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -55,10 +55,10 @@
                                 <include reference="XDj-D2-rOr"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="pGs-Wi-Jdn"/>
                                 <include reference="a1C-Da-u26"/>
                                 <include reference="gdf-i5-n4x"/>
                                 <include reference="twx-nZ-xQO"/>
+                                <include reference="pGs-Wi-Jdn"/>
                             </mask>
                         </variation>
                     </view>

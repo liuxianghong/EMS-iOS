@@ -24,6 +24,8 @@
 #define kMethodFriendsConcern @"/friendsCircle/friendsConcern"
 #define kMethodGetTalkListByUserId @"/friendsCircle/getTalkListByUserId"
 #define kMethodGetCommentUnReadCount @"/friendsCircle/getCommentUnReadCount"
+#define kMethodGetSport @"/sport/getSport"
+#define kMethodInsertSport @"/sport/insertSport"
 
 @implementation EMSAPI
 
@@ -124,5 +126,15 @@
 + (void)getCommentUnReadCountWithParameters: (id)parameters success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
 {
     [[self sharedManager]defaultHTTPWithMethod:kMethodGetCommentUnReadCount WithParameters:parameters post:YES success:success failure:failure];
+}
+
++ (void)getSportWithParameters: (id)parameters success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    [[self sharedManager]defaultHTTPWithMethod:kMethodGetSport WithParameters:parameters post:YES success:success failure:failure];
+}
+
++ (void)insertSportWithParameters: (id)parameters success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    [[self sharedManager]defaultHTTPWithMethod:kMethodInsertSport WithParameters:parameters post:YES success:success failure:failure];
 }
 @end

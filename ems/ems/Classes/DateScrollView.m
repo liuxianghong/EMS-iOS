@@ -7,7 +7,7 @@
 //
 
 #import "DateScrollView.h"
-#import "DateView.h"
+
 
 @interface DateScrollView()<UIScrollViewDelegate>
 
@@ -23,6 +23,8 @@
     CGPoint currentPoint;
     
     DateView *cView;
+    
+    NSDate *date;
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder
@@ -37,6 +39,7 @@
         [labelArray addObject:label];
         label.index = i;
     }
+    date = [NSDate date];
     self.pagingEnabled = NO;
     self.delegate = self;
     first = YES;
@@ -91,7 +94,8 @@
     [self setContentOffset:currentPoint animated:YES];
     if (self.dateScrolldelegate) {
         BOOL bo = ((maxDateView-7) == tag);
-        [self.dateScrolldelegate didSelectDate:[NSDate date] isToday:bo];
+        NSDate *date2 = [date dateByAddingTimeInterval:24*3600*(tag-(maxDateView-7))];
+        [self.dateScrolldelegate didSelectDate:date2 isToday:bo];
     }
 }
 /*

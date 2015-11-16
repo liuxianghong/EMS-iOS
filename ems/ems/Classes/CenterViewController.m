@@ -12,6 +12,8 @@
 #import "IIViewDeckController.h"
 #import "DateScrollView.h"
 #import "TimeScrollView.h"
+#import <MBProgressHUD.h>
+#import "EMSAPI.h"
 
 @interface CenterViewController ()<BTSmartSensorDelegate,DateScrollViewDelegate>
 @property (strong, nonatomic) SerialGATT *sensor;
@@ -45,6 +47,12 @@
     
     RectView *rectViewSmall;
     
+    BOOL first;
+    
+    NSMutableDictionary *dataDic;
+    
+    NSTimer *countDownTimer;
+    long timeCount;
 }
 @synthesize sensor;
 @synthesize peripheralViewControllerArray;
@@ -77,6 +85,61 @@
     self.viewcolor2.layer.masksToBounds = YES;
     
     rectViewSmall.power = 1;
+    
+    first = YES;
+    dataDic = [[NSMutableDictionary alloc]init];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if (first&&[[NSUserDefaults standardUserDefaults] objectForKey:@"id"]) {
+        first = NO;
+        NSDate *date = [NSDate date];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat: @"yyyy-MM-dd HH:mm:ss"];
+        [formatter setDateFormat: @"yyyy-MM-dd"];
+        NSDate *date2 = [date dateByAddingTimeInterval:(24*3600)*(maxDateView-6)];
+        NSString *strendtime = [formatter stringFromDate:date];
+        NSString *endtime = [formatter stringFromDate:date2];
+        [formatter setDateFormat: @"MM/dd"];
+        
+        NSDictionary *dic = @{
+                              @"starttime" : endtime,
+                              @"endtime" : strendtime,
+                              @"userid" : [[NSUserDefaults standardUserDefaults] objectForKey:@"id"]
+                              };
+        [EMSAPI getSportWithParameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"%@",responseObject);
+            if ([responseObject[@"state"] integerValue]==0) {
+                NSArray *array = responseObject[@"data"];
+                NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                [formatter setDateFormat: @"yyyy-MM-dd HH:mm:ss"];
+                for (NSDictionary *sportDic in array) {
+                    NSString *uploadtime = sportDic[@"uploadtime"];
+                    NSDate *date = [formatter dateFromString:uploadtime];
+                    NSDateFormatter *formatter2 = [[NSDateFormatter alloc] init];
+                    [formatter2 setDateFormat: @"MM/dd"];
+                    NSString *week = [formatter2 stringFromDate:date];
+                    NSInteger time = [sportDic[@"time"] integerValue];
+                    double calorie = [sportDic[@"calorie"] doubleValue];
+                    NSMutableDictionary *dicweek = [dataDic objectForKey:week];
+                    if (!dicweek) {
+                        dicweek = [[NSMutableDictionary alloc]init];
+                        [dataDic setObject:dicweek forKey:week];
+                    }
+                    
+                    NSInteger timeBefor = [[dicweek objectForKey:@"time"] integerValue];
+                    [dicweek setObject:[NSString stringWithFormat:@"%ld",(time+timeBefor)] forKey:@"time"];
+                    double calorieWeek = [[dicweek objectForKey:@"calorie"] doubleValue];
+                    [dicweek setObject:[NSString stringWithFormat:@"%f",(calorieWeek+calorie)] forKey:@"calorie"];
+                    
+                }
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            ;
+        }];
+    }
 }
 
 -(void)viewWillLayoutSubviews
@@ -133,9 +196,51 @@
 
 -(IBAction)buttonstarclick:(UIButton *)sender
 {
+    if(!sender.selected)
+    {
+        if (!sensor.activePeripheral) {
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+            hud.detailsLabelText = @"设备没有连接，请检查设备是否已开启或已被其它手机连接";
+            hud.mode = MBProgressHUDModeText;
+            [hud hide:YES afterDelay:2.0f];
+            return;
+        }
+        timeCount = 0;
+        countDownTimer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(countDown) userInfo:nil repeats:YES];
+    }
+    else
+    {
+        if (countDownTimer) {
+            [countDownTimer invalidate];
+            countDownTimer = nil;
+        }
+        if (timeCount<1) {
+            return;
+        }
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat: @"yyyy-MM-dd HH:mm:ss"];
+        NSDictionary *dic = @{
+                               @"userid" : [[NSUserDefaults standardUserDefaults] objectForKey:@"id"],
+                               @"calorie" : @(timeCount*rectViewSmall.power),
+                               @"mode" : @(selecttag%3+1),
+                               @"strength" : [NSString stringWithFormat:@"%ld",rectViewSmall.power],
+                               @"uploadtime" : [formatter stringFromDate:[NSDate date]],
+                               @"time" : @(timeCount)
+                              };
+        [EMSAPI insertSportWithParameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"%@",responseObject);
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            ;
+        }];
+    }
     sender.selected = !sender.selected;
     [self updateStarButton];
     [self beginSatr:sender.selected];
+}
+
+-(void)countDown
+{
+    timeCount ++;
 }
 
 -(IBAction)lessClick:(id)sender
@@ -168,7 +273,9 @@
 }
 
 -(IBAction)historyClick:(id)sender{
-    //MomentsVC
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Course" bundle:nil];
+    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"CourseVC"];//MomentsVC
+    [self.viewDeckController.theNavigationController pushViewController:vc animated:YES];
 }
 //send data
 -(void)beginSatr:(BOOL)bo
@@ -243,8 +350,29 @@
 
 -(void)didSelectDate:(NSDate *)date isToday:(BOOL)bo
 {
+    NSLog(@"%@",date);
     self.view1.hidden = !bo;
     self.view2.hidden = bo;
+    if (!bo) {
+        NSDateFormatter *formatter2 = [[NSDateFormatter alloc] init];
+        [formatter2 setDateFormat: @"MM/dd"];
+        NSString *week = [formatter2 stringFromDate:date];
+        NSDictionary *dic = dataDic[week];
+        if (dic) {
+            NSInteger time = [[dic objectForKey:@"time"] integerValue];
+            double calorie = [[dic objectForKey:@"calorie"] doubleValue];
+            self.label2top.text = [NSString stringWithFormat:@"共使用%ldmin",time];
+            if(calorie == 0)
+                self.label2cent.text = [NSString stringWithFormat:@"消耗%f大卡",calorie];
+            else
+                self.label2cent.text = [NSString stringWithFormat:@"消耗0大卡"];
+        }
+        else
+        {
+            self.label2top.text = [NSString stringWithFormat:@"共使用0min"];
+            self.label2cent.text = [NSString stringWithFormat:@"消耗0大卡"];
+        }
+    }
 }
 /*
 #pragma mark - Navigation

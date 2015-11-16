@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DateView.h"
 
 @protocol DateScrollViewDelegate <NSObject>
 -(void)didSelectDate:(NSDate *)date isToday:(BOOL)bo;
