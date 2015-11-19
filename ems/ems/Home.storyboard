@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -13,12 +13,13 @@
         <scene sceneID="t2E-V0-21G">
             <objects>
                 <tableViewController id="E9b-ub-1lP" customClass="LeftTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="mnY-Kz-bCl">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="mnY-Kz-bCl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellIdentifier" rowHeight="70" id="n1r-HE-D0B" customClass="LeftTableViewCell">
                                 <rect key="frame" x="0.0" y="22" width="600" height="70"/>
@@ -40,31 +41,14 @@
                                                     <exclude reference="DTG-o1-Hch"/>
                                                 </mask>
                                             </variation>
-                                            <variation key="heightClass=regular-widthClass=compact">
+                                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                <rect key="frame" x="15" y="18" width="35" height="35"/>
                                                 <mask key="constraints">
                                                     <include reference="4VH-eL-IUh"/>
                                                     <include reference="DTG-o1-Hch"/>
                                                 </mask>
                                             </variation>
                                         </imageView>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Foc-td-qG8">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                            <animations/>
-                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="1" id="z9r-7O-azp"/>
-                                            </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="z9r-7O-azp"/>
-                                                </mask>
-                                            </variation>
-                                            <variation key="heightClass=regular-widthClass=compact">
-                                                <mask key="constraints">
-                                                    <include reference="z9r-7O-azp"/>
-                                                </mask>
-                                            </variation>
-                                        </view>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的消息" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKS-Gl-IU0">
                                             <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                             <animations/>
@@ -76,9 +60,6 @@
                                     <animations/>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="Foc-td-qG8" firstAttribute="leading" secondItem="3PG-5O-1u9" secondAttribute="leading" id="1Kt-el-7Ix"/>
-                                        <constraint firstAttribute="bottom" secondItem="Foc-td-qG8" secondAttribute="bottom" id="GVm-2I-neP"/>
-                                        <constraint firstAttribute="trailing" secondItem="Foc-td-qG8" secondAttribute="trailing" id="QsR-6f-Hle"/>
                                         <constraint firstItem="d34-HZ-PP5" firstAttribute="leading" secondItem="3PG-5O-1u9" secondAttribute="leading" constant="15" id="fZD-Nn-Nbo"/>
                                         <constraint firstItem="d34-HZ-PP5" firstAttribute="centerY" secondItem="3PG-5O-1u9" secondAttribute="centerY" id="gjr-fW-wny"/>
                                         <constraint firstAttribute="centerY" secondItem="lKS-Gl-IU0" secondAttribute="centerY" id="odm-d4-EiH"/>
@@ -87,15 +68,11 @@
                                     <variation key="default">
                                         <mask key="subviews">
                                             <exclude reference="d34-HZ-PP5"/>
-                                            <exclude reference="Foc-td-qG8"/>
                                             <exclude reference="lKS-Gl-IU0"/>
                                         </mask>
                                         <mask key="constraints">
                                             <exclude reference="odm-d4-EiH"/>
                                             <exclude reference="tJe-Qp-3ov"/>
-                                            <exclude reference="1Kt-el-7Ix"/>
-                                            <exclude reference="GVm-2I-neP"/>
-                                            <exclude reference="QsR-6f-Hle"/>
                                             <exclude reference="fZD-Nn-Nbo"/>
                                             <exclude reference="gjr-fW-wny"/>
                                         </mask>
@@ -103,15 +80,11 @@
                                     <variation key="heightClass=regular-widthClass=compact">
                                         <mask key="subviews">
                                             <include reference="d34-HZ-PP5"/>
-                                            <include reference="Foc-td-qG8"/>
                                             <include reference="lKS-Gl-IU0"/>
                                         </mask>
                                         <mask key="constraints">
                                             <include reference="odm-d4-EiH"/>
                                             <include reference="tJe-Qp-3ov"/>
-                                            <include reference="1Kt-el-7Ix"/>
-                                            <include reference="GVm-2I-neP"/>
-                                            <include reference="QsR-6f-Hle"/>
                                             <include reference="fZD-Nn-Nbo"/>
                                             <include reference="gjr-fW-wny"/>
                                         </mask>
