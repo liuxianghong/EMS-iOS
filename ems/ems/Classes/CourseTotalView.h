@@ -11,4 +11,5 @@
 
 @interface CourseTotalView : UIView
 @property (nonatomic,weak) IBOutlet PieView *pieView;
+@property (nonatomic,strong) NSArray *array;
 @end

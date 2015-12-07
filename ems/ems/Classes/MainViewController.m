@@ -34,8 +34,8 @@
     }
     else
     {
-        static BOOL isFirst = YES;
-        if (isFirst) {
+        static BOOL isFirst =  YES;
+        if (![[NSUserDefaults standardUserDefaults] objectForKey:@"id"]) {
             [self performSegueWithIdentifier:@"Login" sender:nil];
         }
         isFirst = NO;

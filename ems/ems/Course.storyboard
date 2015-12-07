@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -155,9 +155,6 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="1" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="82" y="52" width="36" height="34"/>
-                                        </variation>
                                         <connections>
                                             <action selector="buttonClick:" destination="TXM-gL-8aU" eventType="touchUpInside" id="BkN-8t-QEG"/>
                                         </connections>
@@ -175,9 +172,6 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="1" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="282" y="52" width="36" height="34"/>
-                                        </variation>
                                         <connections>
                                             <action selector="buttonClick:" destination="TXM-gL-8aU" eventType="touchUpInside" id="1iK-X5-Mma"/>
                                         </connections>
@@ -245,25 +239,16 @@
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="198" y="128" width="102" height="203"/>
-                                        </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2D7-kK-7Mw" customClass="CourseWeekMounthView">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="16" y="125" width="150" height="203"/>
-                                        </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aFf-P6-agm" customClass="CourseWeekMounthView">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="322" y="134" width="70" height="203"/>
-                                        </variation>
                                     </view>
                                 </subviews>
                                 <animations/>
@@ -296,18 +281,18 @@
                                         <exclude reference="PW1-D2-kZa"/>
                                         <exclude reference="QdZ-US-RtY"/>
                                         <exclude reference="Trn-fz-T5m"/>
-                                        <exclude reference="20W-0u-3sW"/>
-                                        <exclude reference="EPH-IE-RK4"/>
-                                        <exclude reference="Ncs-3F-nkQ"/>
-                                        <exclude reference="Pwa-UU-ClQ"/>
-                                        <exclude reference="ULb-Mg-AuX"/>
-                                        <exclude reference="doD-vo-elC"/>
                                         <exclude reference="GNh-t5-P7o"/>
                                         <exclude reference="MDf-gd-aXH"/>
                                         <exclude reference="QCw-hL-YnT"/>
                                         <exclude reference="eij-oW-fTY"/>
                                         <exclude reference="ful-VN-ut1"/>
                                         <exclude reference="qDB-NV-f2x"/>
+                                        <exclude reference="20W-0u-3sW"/>
+                                        <exclude reference="EPH-IE-RK4"/>
+                                        <exclude reference="Ncs-3F-nkQ"/>
+                                        <exclude reference="Pwa-UU-ClQ"/>
+                                        <exclude reference="ULb-Mg-AuX"/>
+                                        <exclude reference="doD-vo-elC"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -321,18 +306,18 @@
                                         <include reference="PW1-D2-kZa"/>
                                         <include reference="QdZ-US-RtY"/>
                                         <include reference="Trn-fz-T5m"/>
-                                        <include reference="20W-0u-3sW"/>
-                                        <include reference="EPH-IE-RK4"/>
-                                        <include reference="Ncs-3F-nkQ"/>
-                                        <exclude reference="Pwa-UU-ClQ"/>
-                                        <exclude reference="ULb-Mg-AuX"/>
-                                        <include reference="doD-vo-elC"/>
                                         <include reference="GNh-t5-P7o"/>
                                         <include reference="MDf-gd-aXH"/>
                                         <include reference="QCw-hL-YnT"/>
                                         <include reference="eij-oW-fTY"/>
                                         <include reference="ful-VN-ut1"/>
                                         <include reference="qDB-NV-f2x"/>
+                                        <include reference="20W-0u-3sW"/>
+                                        <include reference="EPH-IE-RK4"/>
+                                        <include reference="Ncs-3F-nkQ"/>
+                                        <exclude reference="Pwa-UU-ClQ"/>
+                                        <exclude reference="ULb-Mg-AuX"/>
+                                        <include reference="doD-vo-elC"/>
                                     </mask>
                                 </variation>
                                 <connections>

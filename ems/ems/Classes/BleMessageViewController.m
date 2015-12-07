@@ -1,23 +1,23 @@
 //
-//  RightViewController.m
+//  BleMessageViewController.m
 //  ems
 //
-//  Created by 刘向宏 on 15/11/7.
+//  Created by 刘向宏 on 15/12/7.
 //  Copyright © 2015年 刘向宏. All rights reserved.
 //
 
-#import "RightViewController.h"
-#import "IIViewDeckController.h"
+#import "BleMessageViewController.h"
 
-@interface RightViewController ()
-
+@interface BleMessageViewController ()
+@property (nonatomic,weak) IBOutlet UILabel *label;
 @end
 
-@implementation RightViewController
+@implementation BleMessageViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.label.text = self.str;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,14 +25,9 @@
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction)backClick:(id)sender
+-(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    [self.viewDeckController closeRightViewAnimated:YES];
-}
-
--(IBAction)buttonClick:(UIButton *)sender
-{
-    [self.viewDeckController.theNavigationController performSegueWithIdentifier:@"detailSee" sender:nil];
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 /*
 #pragma mark - Navigation

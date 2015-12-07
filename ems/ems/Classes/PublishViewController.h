@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface PublishViewController : UIViewController
-
+@property (nonatomic,strong) NSString *titleText;
+@property (nonatomic,strong) NSString *messageText;
+@property (nonatomic,strong) UIImage *image;
 @end

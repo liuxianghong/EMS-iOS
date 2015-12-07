@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -26,6 +26,16 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zUK-UI-gCP" customClass="TopView">
                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                     <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ntF-w6-mkd">
+                                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                            <animations/>
+                                            <state key="normal" title="背景设置">
+                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <segue destination="bug-Y1-HWe" kind="presentation" animates="NO" modalPresentationStyle="overCurrentContext" id="KOH-BA-H4k"/>
+                                            </connections>
+                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VB4-wT-GE1">
                                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                             <animations/>
@@ -40,31 +50,39 @@
                                     <animations/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="VB4-wT-GE1" secondAttribute="trailing" constant="8" id="81a-WT-9wj"/>
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="AYh-QT-XGo"/>
                                         <constraint firstItem="VB4-wT-GE1" firstAttribute="centerY" secondItem="zUK-UI-gCP" secondAttribute="centerY" id="FRR-Gv-67B"/>
+                                        <constraint firstAttribute="trailing" secondItem="ntF-w6-mkd" secondAttribute="trailing" constant="15" id="aOp-Ze-dZU"/>
                                         <constraint firstAttribute="height" constant="45" id="doz-z8-Yjl"/>
+                                        <constraint firstItem="ntF-w6-mkd" firstAttribute="centerY" secondItem="zUK-UI-gCP" secondAttribute="centerY" id="kMx-2F-GNR"/>
+                                        <constraint firstItem="ntF-w6-mkd" firstAttribute="leading" secondItem="VB4-wT-GE1" secondAttribute="trailing" constant="21" id="qNC-LV-XfF"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="subviews">
+                                            <exclude reference="ntF-w6-mkd"/>
                                             <exclude reference="VB4-wT-GE1"/>
                                         </mask>
                                         <mask key="constraints">
                                             <exclude reference="AYh-QT-XGo"/>
                                             <exclude reference="doz-z8-Yjl"/>
-                                            <exclude reference="81a-WT-9wj"/>
                                             <exclude reference="FRR-Gv-67B"/>
+                                            <exclude reference="aOp-Ze-dZU"/>
+                                            <exclude reference="kMx-2F-GNR"/>
+                                            <exclude reference="qNC-LV-XfF"/>
                                         </mask>
                                     </variation>
                                     <variation key="heightClass=regular-widthClass=compact">
                                         <mask key="subviews">
+                                            <include reference="ntF-w6-mkd"/>
                                             <include reference="VB4-wT-GE1"/>
                                         </mask>
                                         <mask key="constraints">
                                             <include reference="AYh-QT-XGo"/>
                                             <include reference="doz-z8-Yjl"/>
-                                            <include reference="81a-WT-9wj"/>
                                             <include reference="FRR-Gv-67B"/>
+                                            <include reference="aOp-Ze-dZU"/>
+                                            <include reference="kMx-2F-GNR"/>
+                                            <include reference="qNC-LV-XfF"/>
                                         </mask>
                                     </variation>
                                 </view>
@@ -554,7 +572,92 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JgD-Ec-kCv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="327" y="342.75"/>
+            <point key="canvasLocation" x="-1137" y="336.75"/>
+        </scene>
+        <!--Back Groud View Controller-->
+        <scene sceneID="BBa-7q-Jh3">
+            <objects>
+                <viewController id="bug-Y1-HWe" customClass="BackGroudViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DSS-74-K3Z"/>
+                        <viewControllerLayoutGuide type="bottom" id="ThW-cr-ySa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5DB-63-de0">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmk-AM-wG4">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="取消">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelClick:" destination="bug-Y1-HWe" eventType="touchUpInside" id="SV9-3Z-siC"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pD4-aC-iZJ">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZcN-fG-8ZF">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="bug-Y1-HWe" id="u6R-HI-4KD"/>
+                                    <outlet property="delegate" destination="bug-Y1-HWe" id="6OO-wL-kY1"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="pD4-aC-iZJ" firstAttribute="leading" secondItem="5DB-63-de0" secondAttribute="leading" id="1mI-XM-w4u"/>
+                            <constraint firstAttribute="trailing" secondItem="mmk-AM-wG4" secondAttribute="trailing" constant="30" id="542-rs-wBD"/>
+                            <constraint firstItem="ThW-cr-ySa" firstAttribute="top" secondItem="pD4-aC-iZJ" secondAttribute="bottom" constant="90" id="5tL-qd-Hlg"/>
+                            <constraint firstItem="mmk-AM-wG4" firstAttribute="top" secondItem="pD4-aC-iZJ" secondAttribute="bottom" constant="8" id="ALM-d1-HPZ"/>
+                            <constraint firstItem="pD4-aC-iZJ" firstAttribute="centerY" secondItem="5DB-63-de0" secondAttribute="centerY" id="LaM-hk-bAf"/>
+                            <constraint firstAttribute="trailing" secondItem="pD4-aC-iZJ" secondAttribute="trailing" id="ZqJ-wM-c0S"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="mmk-AM-wG4"/>
+                                <exclude reference="pD4-aC-iZJ"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="1mI-XM-w4u"/>
+                                <exclude reference="LaM-hk-bAf"/>
+                                <exclude reference="ZqJ-wM-c0S"/>
+                                <exclude reference="542-rs-wBD"/>
+                                <exclude reference="ALM-d1-HPZ"/>
+                                <exclude reference="5tL-qd-Hlg"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="mmk-AM-wG4"/>
+                                <include reference="pD4-aC-iZJ"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="1mI-XM-w4u"/>
+                                <include reference="LaM-hk-bAf"/>
+                                <include reference="ZqJ-wM-c0S"/>
+                                <include reference="542-rs-wBD"/>
+                                <include reference="ALM-d1-HPZ"/>
+                                <include reference="5tL-qd-Hlg"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="pD4-aC-iZJ" id="LY0-6A-wNs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RVh-Lf-ejf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-97.5" y="-55.5"/>
         </scene>
         <!--Person Detail Edite Table View Controller-->
         <scene sceneID="Dsu-T0-6Du">
@@ -1459,7 +1562,8 @@
                                                     <exclude reference="Xtc-t8-Ec9"/>
                                                 </mask>
                                             </variation>
-                                            <variation key="heightClass=regular-widthClass=compact">
+                                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                <rect key="frame" x="0.0" y="10" width="240" height="98"/>
                                                 <mask key="constraints">
                                                     <include reference="Xtc-t8-Ec9"/>
                                                 </mask>
@@ -1479,7 +1583,8 @@
                                                     <exclude reference="GXZ-cU-jy3"/>
                                                 </mask>
                                             </variation>
-                                            <variation key="heightClass=regular-widthClass=compact">
+                                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                <rect key="frame" x="165" y="68" width="60" height="60"/>
                                                 <mask key="constraints">
                                                     <include reference="0em-Gi-f5J"/>
                                                     <include reference="GXZ-cU-jy3"/>
@@ -1495,6 +1600,9 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                <rect key="frame" x="115" y="87" width="42" height="21"/>
+                                            </variation>
                                         </label>
                                     </subviews>
                                     <animations/>
@@ -2014,7 +2122,7 @@
         <!--Publish View Controller-->
         <scene sceneID="Fwj-3b-I7c">
             <objects>
-                <viewController id="bQm-Kx-cGi" customClass="PublishViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PublishViewController" id="bQm-Kx-cGi" customClass="PublishViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rP4-rA-EJp"/>
                         <viewControllerLayoutGuide type="bottom" id="y39-nB-PHU"/>
@@ -2413,6 +2521,7 @@
                     <connections>
                         <outlet property="collectionView" destination="N3c-5W-y2G" id="7sR-ep-ovr"/>
                         <outlet property="heightConstraint" destination="suU-I5-p2j" id="I62-dT-ih7"/>
+                        <outlet property="imageButton" destination="Y6a-zX-8yH" id="VR3-Rt-oUl"/>
                         <outlet property="messageLabel" destination="2Te-yM-Hc1" id="40h-Cm-E2z"/>
                         <outlet property="messageView" destination="UKA-nT-64C" id="1tQ-wB-VzJ"/>
                         <outlet property="titleField" destination="xLN-80-Oyc" id="mYN-9a-Rv5"/>
@@ -2635,6 +2744,9 @@
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <animations/>
                                                     <state key="normal" image="ic_friend_add_normal.png"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="198" y="19" width="21" height="22"/>
+                                                    </variation>
                                                     <connections>
                                                         <action selector="addClick:" destination="HeN-sy-RbE" eventType="touchUpInside" id="IIg-Mi-LOO"/>
                                                     </connections>
@@ -3035,7 +3147,7 @@
                                                         <color key="titleColor" red="0.89019607840000003" green="0.19215686269999999" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="349" y="-1" width="30" height="31"/>
+                                                        <rect key="frame" x="189" y="0.0" width="30" height="30"/>
                                                     </variation>
                                                     <connections>
                                                         <action selector="addClick:" destination="0KN-S2-elO" eventType="touchUpInside" id="Oyk-dZ-ngc"/>
@@ -3226,7 +3338,7 @@
     <resources>
         <image name="bg_timeline_header.png" width="1080" height="440"/>
         <image name="black.png" width="211" height="201"/>
-        <image name="ic_friend_add_normal.png" width="43" height="43"/>
+        <image name="ic_friend_add_normal.png" width="21" height="21"/>
         <image name="ic_login_icon.png" width="202" height="191"/>
         <image name="ic_my_mark.png" width="100" height="100"/>
         <image name="ic_sex_no_select.png" width="15" height="15"/>

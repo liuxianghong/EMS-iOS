@@ -99,7 +99,7 @@
         [formatter setDateFormat: @"yyyy-MM-dd"];
         NSString *strendtime = [formatter stringFromDate:date];
         [formatter setDateFormat: @"MM/dd"];
-        for (int i =7; i>0; i--) {
+        for (int i =6; i>=0; i--) {
             NSDate *weekDate = [date dateByAddingTimeInterval:(-3600*24*i)];
             NSString *weekString = [formatter stringFromDate:weekDate];
             [weekDic setValue:@"0" forKey:weekString];
@@ -143,20 +143,22 @@
                             [monthDic setObject:[NSString stringWithFormat:@"%ld",(time+timeBefor)] forKey:month];
                             calorieMonth+=calorie;
                         }
+                        
+                        NSInteger mode = [sportDic[@"mode"] integerValue];
+                        if (mode == 1) {
+                            model1 += time;
+                        }
+                        else if (mode == 2)
+                        {
+                            model2 += time;
+                        }
+                        else
+                        {
+                            model3 += time;
+                        }
                     }
                     
-                    NSInteger mode = [sportDic[@"mode"] integerValue];
-                    if (mode == 1) {
-                        model1++;
-                    }
-                    else if (mode == 2)
-                    {
-                        model2++;
-                    }
-                    else
-                    {
-                        model3++;
-                    }
+                    
                     
                 }
                 NSMutableArray *arrayData = [[NSMutableArray alloc] init];
@@ -165,6 +167,7 @@
                 }
                 NSArray *dataArray = [NSArray arrayWithObjects:weekArray,arrayData, nil ];
                 self.weekView.DataView.dataArray = dataArray;
+                [self.weekView.DataView showDate];
                 self.weekView.calorie = calorieWeek;
                 
                 arrayData = [[NSMutableArray alloc] init];
@@ -173,7 +176,10 @@
                 }
                 dataArray = [NSArray arrayWithObjects:monthArray,arrayData, nil ];
                 self.monthView.DataView.dataArray = dataArray;
-                self.monthView.calorie = calorieWeek;
+                [self.monthView.DataView showDate];
+                self.monthView.calorie = calorieMonth;
+                
+                self.totalView.array = @[@(model1),@(model2),@(model3)];
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             ;

@@ -113,6 +113,7 @@
     //bottom.frame = CGRectMake(0, self.view.height-60, self.view.width, 40);
     self.inputView.frame = bottom.frame = CGRectMake(0, self.view.height-40, self.view.width, 40);
     [self.tableView reloadData];
+    self.moreView.hidden = YES;
     if (first) {
         first = NO;
         page = 1;

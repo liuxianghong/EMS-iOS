@@ -56,8 +56,19 @@
     [super drawRect:rect];
     
 }
+
+-(void)showDate
+{
+    [self filter];
+    [self initDate];
+}
+
 -(void)initDate
 {
+    for (UIView *viewsub in contentView.subviews) {
+        [viewsub removeFromSuperview];
+        [ItemShowViewArray removeAllObjects];
+    }
     NSUInteger count = [dateArray count];
     NSUInteger row_Inter = VERTICALE_DATA_SPACES;
     int maxIndex = [self getMaxIndex:ItemArray];
@@ -65,8 +76,9 @@
         NSUInteger x = (i+1)*row_Inter+i*view_width;
         
         NSInteger maxValue = 80;//[[ItemArray objectAtIndex:maxIndex] intValue];
-        CGFloat height= [[ItemArray objectAtIndex:i] intValue]*Max_Height/maxValue;
+        CGFloat height= [[ItemArray objectAtIndex:i] intValue]/60*Max_Height/maxValue;
         height = height<1?1:height;
+        height = height>Max_Height?Max_Height:height;
         //底色
         UIView *view = [[UIView alloc]initWithFrame:CGRectMake(x, self.height - height - BOTTOM_HEIGHT, view_width, height)];
         view.backgroundColor = [UIColor colorWithRed:50/255.0 green:143/255.0 blue:222/255.0 alpha:1];

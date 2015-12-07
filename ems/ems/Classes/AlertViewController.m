@@ -1,19 +1,18 @@
 //
-//  RightViewController.m
+//  AlertViewController.m
 //  ems
 //
-//  Created by 刘向宏 on 15/11/7.
+//  Created by 刘向宏 on 15/12/7.
 //  Copyright © 2015年 刘向宏. All rights reserved.
 //
 
-#import "RightViewController.h"
-#import "IIViewDeckController.h"
+#import "AlertViewController.h"
 
-@interface RightViewController ()
+@interface AlertViewController ()
 
 @end
 
-@implementation RightViewController
+@implementation AlertViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,14 +24,20 @@
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction)backClick:(id)sender
+-(IBAction)okClick:(id)sender
 {
-    [self.viewDeckController closeRightViewAnimated:YES];
+    if (self.delegate) {
+        [self.delegate didClick:1 withTag:self.tag];
+    }
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
--(IBAction)buttonClick:(UIButton *)sender
+-(IBAction)cancelClick:(id)sender
 {
-    [self.viewDeckController.theNavigationController performSegueWithIdentifier:@"detailSee" sender:nil];
+    if (self.delegate) {
+        [self.delegate didClick:0 withTag:self.tag];
+    }
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 /*
 #pragma mark - Navigation

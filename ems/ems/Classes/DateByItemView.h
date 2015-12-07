@@ -22,4 +22,5 @@
 @property(nonatomic,retain)NSArray  *dateArray;
 @property(nonatomic,retain)NSArray  *ItemArray;
 @property(nonatomic,retain)NSArray  *dataArray;
+-(void)showDate;
 @end

@@ -139,6 +139,8 @@
         activePeripheral = nil;
         [peripherals removeAllObjects];
     }
+    if(self.delegate)
+       [self.delegate didUpdateState:central.state];
     //TODO: to handle the state updates
 }
 
@@ -222,6 +224,7 @@
 
 
 }
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 

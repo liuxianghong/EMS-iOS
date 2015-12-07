@@ -19,6 +19,7 @@
 - (void) serialGATTCharValueUpdated: (NSString *)UUID value: (NSData *)data;
 - (void) setConnect;
 - (void) setDisconnect;
+- (void) didUpdateState:(CBCentralManagerState)state;
 @end
 
 @interface SerialGATT : NSObject<CBCentralManagerDelegate, CBPeripheralDelegate> {
@@ -29,6 +30,7 @@
 @property (strong, nonatomic) NSMutableArray *peripherals;
 @property (strong, nonatomic) CBCentralManager *manager;
 @property (strong, nonatomic) CBPeripheral *activePeripheral;
+@property (assign, nonatomic) CBCentralManagerState state;
 
 
 #pragma mark - Methods for controlling the HMSoft Sensor

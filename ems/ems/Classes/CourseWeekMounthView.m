@@ -30,7 +30,7 @@
     }
     else
     {
-        self.calorieLabel.text = [NSString stringWithFormat:@"%f大卡",calorie];
+        self.calorieLabel.text = [NSString stringWithFormat:@"%.2f大卡",calorie];
     }
     
 }

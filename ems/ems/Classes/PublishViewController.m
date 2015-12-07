@@ -20,6 +20,7 @@
 @property (nonatomic,weak) IBOutlet UICollectionView *collectionView;
 @property (nonatomic,weak) IBOutlet UILabel *messageLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightConstraint;
+@property (nonatomic,weak) IBOutlet UIButton *imageButton;
 @end
 
 @implementation PublishViewController
@@ -42,6 +43,17 @@
     
     imagesTrue = [[NSMutableArray alloc]init];
     images = [[NSMutableArray alloc]init];
+    
+    self.titleField.text = self.titleText;
+    self.messageView.text = self.messageText;
+    if (self.image) {
+        [imagesTrue addObject:self.image];
+        self.imageButton.hidden = YES;
+        [images addObject:@"1"];
+        self.messageLabel.hidden = YES;
+        self.heightConstraint.constant = (([images count]-1)/3+1)*(CCellWidth+10);
+    }
+    [self.collectionView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,9 +71,10 @@
 }
 
 -(IBAction)sendClick:(id)sender{
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+    
     if([self.titleField.text length]<1)
     {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
         hud.mode = MBProgressHUDModeText;
         hud.labelText = @"提示";
         hud.detailsLabelText = @"请输入标题";
@@ -69,12 +82,25 @@
         return;
     }
     if ([self.messageView.text length]<1) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
         hud.mode = MBProgressHUDModeText;
         hud.labelText = @"提示";
         hud.detailsLabelText = @"请输入内容";
         [hud hide:YES afterDelay:1.5f];
         return;
     }
+    
+    if (self.image) {
+        [self uploadImage:self.image];
+    }
+    else
+    {
+        [self publish];
+    }
+}
+
+-(void)publish{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
     NSDictionary *dic = @{
                           @"userid" : [[NSUserDefaults standardUserDefaults] objectForKey:@"id"],
                           @"title" : self.titleField.text,
@@ -142,6 +168,8 @@
     CGFloat width = CCellWidth;
     cell.imageView.size = CGSizeMake(width, width);
     cell.imageView.image = imagesTrue[indexPath.row];//
+    [cell setNeedsLayout];
+    [cell layoutIfNeeded];
     return cell;
 }
 
@@ -184,7 +212,7 @@
         hud.labelText = @"提示";
         hud.detailsLabelText = @"最多九张图片";
         [hud hide:YES afterDelay:1.5f];
-        
+        return;
     }
     [self.messageView resignFirstResponder];
     [self.titleField resignFirstResponder];
@@ -235,36 +263,51 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     UIImage *image2=[info objectForKey:UIImagePickerControllerOriginalImage];
     [picker dismissViewControllerAnimated:YES completion:^{
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
-        hud.dimBackground = YES;
-        hud.labelText = @"图片上传中...";
-        [EMSAPI UploadImage:image2 success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            if([[responseObject[@"state"] safeString] integerValue]==0)
-            {
-                NSString *imageNmae = responseObject[@"data"][@"name"];
-                [images addObject:imageNmae];
-                [imagesTrue addObject:image2];
-                CGFloat width = CCellWidth;
-                self.heightConstraint.constant = (([images count]-1)/3+1)*(width+10);
-                [self.collectionView reloadData];
-                [hud hide:YES];
-            }
-            else
-            {
-                hud.mode = MBProgressHUDModeText;
-                hud.labelText = @"提示";
-                hud.detailsLabelText = @"上传图片失败";
-                [hud hide:YES afterDelay:1.5f];
-            }
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            hud.mode = MBProgressHUDModeText;
-            hud.labelText = @"提示";
-            hud.detailsLabelText = error.domain;
-            [hud hide:YES afterDelay:1.5f];
-        }];
+        [self uploadImage:image2];
     }];
     
     
+}
+
+-(void)uploadImage:(UIImage *)image
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+    hud.dimBackground = YES;
+    hud.labelText = @"图片上传中...";
+    [EMSAPI UploadImage:image success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if([[responseObject[@"state"] safeString] integerValue]==0)
+        {
+            NSString *imageNmae = responseObject[@"data"][@"name"];
+            if (self.image) {
+                [images removeObjectAtIndex:0];
+                [images addObject:imageNmae];
+                [hud hide:YES];
+                [self publish];
+                return ;
+            }
+            else
+            {
+                [images addObject:imageNmae];
+                [imagesTrue addObject:image];
+            }
+            CGFloat width = CCellWidth;
+            self.heightConstraint.constant = (([images count]-1)/3+1)*(width+10);
+            [self.collectionView reloadData];
+            [hud hide:YES];
+        }
+        else
+        {
+            hud.mode = MBProgressHUDModeText;
+            hud.labelText = @"提示";
+            hud.detailsLabelText = @"上传图片失败";
+            [hud hide:YES afterDelay:1.5f];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = @"提示";
+        hud.detailsLabelText = error.domain;
+        [hud hide:YES afterDelay:1.5f];
+    }];
 }
 /*
 #pragma mark - Navigation
