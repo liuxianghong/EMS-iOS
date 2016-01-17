@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -24,14 +24,12 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzZ-7F-XPb">
                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                    <animations/>
                     <connections>
                         <action selector="touchView:" destination="-1" eventType="touchUpInside" id="T4e-ON-fcr"/>
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWU-pH-NGd">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="8" id="S3h-L9-LbY"/>
@@ -52,11 +50,11 @@
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uV6-8S-G8X">
                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="Bh1-xb-E5B"/>
                         <constraint firstAttribute="height" constant="30" id="uaz-wE-hJp"/>
                     </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" backgroundImage="ic_play_normal.png"/>
                     <state key="selected" backgroundImage="ic_stop_normal.png"/>
                     <variation key="default">
@@ -74,20 +72,23 @@
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obT-2R-fNS">
                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                    <animations/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                        <rect key="frame" x="216" y="390" width="42" height="21"/>
+                    </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aa9-aM-bHU">
                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                    <animations/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                        <rect key="frame" x="142" y="390" width="42" height="21"/>
+                    </variation>
                 </label>
             </subviews>
-            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
@@ -117,10 +118,10 @@
                     <exclude reference="R1S-AV-7wz"/>
                     <exclude reference="g7H-7W-Qsw"/>
                     <exclude reference="zOj-Ye-HUO"/>
-                    <exclude reference="5yg-Pe-sGF"/>
-                    <exclude reference="DRS-1i-PJl"/>
                     <exclude reference="fVu-U1-Gtf"/>
                     <exclude reference="h7I-IR-4ZX"/>
+                    <exclude reference="5yg-Pe-sGF"/>
+                    <exclude reference="DRS-1i-PJl"/>
                     <exclude reference="E6c-0b-2Xr"/>
                     <exclude reference="Xwr-Ty-nfS"/>
                     <exclude reference="Mqu-bh-9se"/>
@@ -140,10 +141,10 @@
                     <include reference="R1S-AV-7wz"/>
                     <include reference="g7H-7W-Qsw"/>
                     <include reference="zOj-Ye-HUO"/>
-                    <include reference="5yg-Pe-sGF"/>
-                    <include reference="DRS-1i-PJl"/>
                     <include reference="fVu-U1-Gtf"/>
                     <include reference="h7I-IR-4ZX"/>
+                    <include reference="5yg-Pe-sGF"/>
+                    <include reference="DRS-1i-PJl"/>
                     <include reference="E6c-0b-2Xr"/>
                     <include reference="Xwr-Ty-nfS"/>
                     <include reference="Mqu-bh-9se"/>

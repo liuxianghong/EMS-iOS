@@ -12,4 +12,5 @@
 @interface CourseWeekMounthView : UIView
 @property (nonatomic,weak) IBOutlet DateByItemView *DataView;
 @property (nonatomic,assign) double calorie;
+@property (nonatomic,assign) NSInteger type;
 @end

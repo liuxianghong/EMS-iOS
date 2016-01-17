@@ -75,7 +75,7 @@
     for (int i = 0 ; i< [dateArray count]; i++) {
         NSUInteger x = (i+1)*row_Inter+i*view_width;
         
-        NSInteger maxValue = 80;//[[ItemArray objectAtIndex:maxIndex] intValue];
+        NSInteger maxValue = self.type? 80*60:80;//[[ItemArray objectAtIndex:maxIndex] intValue];
         CGFloat height= [[ItemArray objectAtIndex:i] intValue]/60*Max_Height/maxValue;
         height = height<1?1:height;
         height = height>Max_Height?Max_Height:height;

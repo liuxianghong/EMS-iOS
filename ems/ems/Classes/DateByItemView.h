@@ -18,9 +18,12 @@
     UIScrollView    *contentSV;
     UIView          *contentView;
     
+    
+    
 }
 @property(nonatomic,retain)NSArray  *dateArray;
 @property(nonatomic,retain)NSArray  *ItemArray;
 @property(nonatomic,retain)NSArray  *dataArray;
+@property(nonatomic,assign)NSInteger type;
 -(void)showDate;
 @end

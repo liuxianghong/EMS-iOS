@@ -90,7 +90,7 @@
     
     
     printf("now we are searching device...\n");
-    array = @[@[@"瘦身",[UIColor blueColor],@(0x80)],@[@"放松",[UIColor yellowColor],@(0x81)],@[@"塑形",[UIColor redColor],@(0x82)]];
+    array = @[@[@"瘦身",[UIColor blueColor],@(0x80)],@[@"按摩",[UIColor yellowColor],@(0x81)],@[@"塑形",[UIColor redColor],@(0x82)]];
     powerArray = @[@10,@13,@16,@18,@20,@22,@24,@26,@28,@30,@31];
     modelArray = @[@[@7,@8],@[@1,@1],@[@9,@10]];
     selecttag = 1;
@@ -340,10 +340,7 @@
 
 -(IBAction)shareButtonClick:(id)sender
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
-    AlertViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"AlertVC"];
-    vc.delegate = self;
-    [self.view addSubview:vc.view];
+    [self didClick:1 withTag:0];
 }
 
 
@@ -506,11 +503,11 @@
 {
     if (state == CBCentralManagerStatePoweredOff) {
         //bleMessage
-        [self performSegueWithIdentifier:@"bleMessage" sender:@0];
+        //[self performSegueWithIdentifier:@"bleMessage" sender:@0];
     }
     else if (state == CBCentralManagerStateUnauthorized)
     {
-        [self performSegueWithIdentifier:@"bleMessage" sender:@2];
+        //[self performSegueWithIdentifier:@"bleMessage" sender:@2];
     }
 }
 #pragma mark - Navigation

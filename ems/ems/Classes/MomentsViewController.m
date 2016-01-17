@@ -13,6 +13,7 @@
 #import "InputView.h"
 #import <UIImageView+WebCache.h>
 #import "MomentsTableViewController.h"
+#import <MBProgressHUD.h>
 
 @interface MomentsViewController ()<UITextFieldDelegate,MomentsTableViewCellDelegate>
 @property (nonatomic,strong) NSMutableArray *tableViewArray;
@@ -22,6 +23,8 @@
 @property (nonatomic,weak) IBOutlet UIImageView *headImageView;
 @property (nonatomic,weak) IBOutlet UIView *moreView;
 @property (nonatomic,weak) IBOutlet UILabel *nameLabel;
+
+@property (nonatomic,weak) IBOutlet UIImageView *bgImageView;
 
 @property (nonatomic,weak) IBOutlet UIButton *messgUnreadButton;
 @end
@@ -53,6 +56,11 @@
     self.tableView.estimatedRowHeight = 300.0f;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
+    self.bgImageView.userInteractionEnabled = YES;
+    [self.bgImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bgChage)]];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"bgimage"]) {
+        [self.bgImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",emsresourceURL,[[NSUserDefaults standardUserDefaults] objectForKey:@"bgimage"]]] placeholderImage:self.bgImageView.image];
+    }
     
     self.inputView = [[InputView alloc]initWithFrame:CGRectMake(0, self.view.height-40, self.view.width, 40)];
     [self.view addSubview:self.inputView];
@@ -221,6 +229,62 @@
     vc.uName = [[NSUserDefaults standardUserDefaults] objectForKey:@"nickname"];
     vc.uHeadImage = [[NSUserDefaults standardUserDefaults] objectForKey:@"headimage"];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+
+-(void)bgChage{
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.delegate = self;
+    imagePickerController.allowsEditing = YES;
+    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:imagePickerController animated:YES completion:nil];
+    //    }
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    UIImage *image2=[info objectForKey:UIImagePickerControllerEditedImage];
+    [picker dismissViewControllerAnimated:YES completion:^{
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+        hud.dimBackground = YES;
+        [EMSAPI UploadImage:image2 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            if([[responseObject[@"state"] safeString] integerValue]==0)
+            {
+                NSString *imageNmae = responseObject[@"data"][@"name"];
+                NSDictionary *dic = @{
+                                      @"id" : [[NSUserDefaults standardUserDefaults] objectForKey:@"id"],
+                                      @"bgimage" : imageNmae
+                                      };
+                [EMSAPI updateBgImageWithParameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                    if([[responseObject[@"state"] safeString] integerValue]==0)
+                    {
+                        [[NSUserDefaults standardUserDefaults] setObject:imageNmae forKey:@"bgimage"];
+                        self.bgImageView.image = image2;
+                    }
+                    [hud hide:YES];
+                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                    hud.mode = MBProgressHUDModeText;
+                    hud.labelText = @"提示";
+                    hud.detailsLabelText = error.domain;
+                    [hud hide:YES afterDelay:1.5f];
+                }];
+            }
+            else
+            {
+                hud.mode = MBProgressHUDModeText;
+                hud.labelText = @"提示";
+                hud.detailsLabelText = @"上传图片失败";
+                [hud hide:YES afterDelay:1.5f];
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            hud.mode = MBProgressHUDModeText;
+            hud.labelText = @"提示";
+            hud.detailsLabelText = error.domain;
+            [hud hide:YES afterDelay:1.5f];
+        }];
+    }];
+    
+    
 }
 
 -(void)moreClick:(id)sender

@@ -129,6 +129,15 @@
     }
 }
 
+-(IBAction)deleteClick:(id)sender
+{
+    //self.commentView.hidden = NO;
+    //[self.commentField becomeFirstResponder];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(doDeleteCick:)]) {
+        [self.delegate doDeleteCick:self.dic];
+    }
+}
+
 - (UIViewController *)myViewController {
     // Traverse responder chain. Return first found view controller, which will be
     // the view's view controller.

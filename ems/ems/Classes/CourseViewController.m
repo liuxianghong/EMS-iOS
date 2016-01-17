@@ -50,6 +50,8 @@
     monthDic = [[NSMutableDictionary alloc]init];
     weekArray = [[NSMutableArray alloc]init];
     monthArray = [[NSMutableArray alloc]init];
+    
+    self.monthView.type = 1;
 }
 
 - (void)didReceiveMemoryWarning {

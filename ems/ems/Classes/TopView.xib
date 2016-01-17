@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TopView">
@@ -18,7 +18,6 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_header_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="b5P-Uq-p3y">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="35" id="68C-Ke-YT7"/>
                         <constraint firstAttribute="height" constant="35" id="b20-qd-vPF"/>
@@ -38,7 +37,6 @@
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IgD-14-Xm8">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <animations/>
                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="wVV-rX-7Dr"/>
@@ -56,7 +54,6 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qjH-9l-GDL">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <animations/>
                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="1" id="yW3-C4-2lP"/>
@@ -74,13 +71,11 @@
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注册" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQs-gl-eVq">
                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                    <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="IgD-14-Xm8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="48Q-28-eiy"/>
@@ -102,16 +97,16 @@
                     <exclude reference="TQs-gl-eVq"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="Yfs-sL-ZDL"/>
-                    <exclude reference="mil-Ln-xxU"/>
+                    <exclude reference="PEG-nU-ZOH"/>
+                    <exclude reference="hss-Nv-ywQ"/>
                     <exclude reference="48Q-28-eiy"/>
                     <exclude reference="S4P-wm-x45"/>
                     <exclude reference="dh5-6R-Wf5"/>
                     <exclude reference="gTy-AH-QTf"/>
+                    <exclude reference="Yfs-sL-ZDL"/>
+                    <exclude reference="mil-Ln-xxU"/>
                     <exclude reference="d0N-02-Mdj"/>
                     <exclude reference="dP7-UG-xuZ"/>
-                    <exclude reference="PEG-nU-ZOH"/>
-                    <exclude reference="hss-Nv-ywQ"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -122,16 +117,16 @@
                     <include reference="TQs-gl-eVq"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="Yfs-sL-ZDL"/>
-                    <include reference="mil-Ln-xxU"/>
+                    <include reference="PEG-nU-ZOH"/>
+                    <include reference="hss-Nv-ywQ"/>
                     <include reference="48Q-28-eiy"/>
                     <include reference="S4P-wm-x45"/>
                     <include reference="dh5-6R-Wf5"/>
                     <include reference="gTy-AH-QTf"/>
+                    <include reference="Yfs-sL-ZDL"/>
+                    <include reference="mil-Ln-xxU"/>
                     <include reference="d0N-02-Mdj"/>
                     <include reference="dP7-UG-xuZ"/>
-                    <include reference="PEG-nU-ZOH"/>
-                    <include reference="hss-Nv-ywQ"/>
                 </mask>
             </variation>
         </view>

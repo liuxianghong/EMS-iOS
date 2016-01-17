@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -23,7 +23,6 @@
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_total_model.png" translatesAutoresizingMaskIntoConstraints="NO" id="P7c-8g-PzO">
                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="P7c-8g-PzO" secondAttribute="height" multiplier="37:100" id="qaQ-y7-7kz"/>
                             </constraints>
@@ -40,7 +39,6 @@
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6BU-px-yPW" customClass="PieView">
                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                            <animations/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="6BU-px-yPW" secondAttribute="height" multiplier="1:1" id="dJx-tC-jEj"/>
@@ -57,7 +55,6 @@
                             </variation>
                         </view>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="P7c-8g-PzO" firstAttribute="top" relation="greaterThanOrEqual" secondItem="dC7-ft-jgX" secondAttribute="top" constant="20" id="2ib-Hl-WNv"/>
@@ -104,11 +101,10 @@
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJ9-lI-bxe" customClass="ModelView">
                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                    <animations/>
-                                    <color key="backgroundColor" red="0.99607843137254903" green="0.98039215686274506" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.23529411759999999" green="0.39607843139999999" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="16" id="Aou-jG-wx2"/>
-                                        <constraint firstAttribute="width" constant="16" id="dzn-9c-fGk"/>
+                                        <constraint firstAttribute="height" constant="10" id="Aou-jG-wx2"/>
+                                        <constraint firstAttribute="width" constant="10" id="dzn-9c-fGk"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
@@ -116,7 +112,8 @@
                                             <exclude reference="dzn-9c-fGk"/>
                                         </mask>
                                     </variation>
-                                    <variation key="heightClass=regular-widthClass=compact">
+                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                        <rect key="frame" x="0.0" y="2" width="16" height="16"/>
                                         <mask key="constraints">
                                             <include reference="Aou-jG-wx2"/>
                                             <include reference="dzn-9c-fGk"/>
@@ -125,13 +122,14 @@
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="瘦身" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Flu-Pz-FEG">
                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                    <animations/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
+                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                        <rect key="frame" x="19" y="0.0" width="34" height="21"/>
+                                    </variation>
                                 </label>
                             </subviews>
-                            <animations/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="Flu-Pz-FEG" firstAttribute="leading" secondItem="eJ9-lI-bxe" secondAttribute="trailing" constant="3" id="0vm-5s-eLK"/>
@@ -155,7 +153,8 @@
                                     <exclude reference="sF2-bZ-EcM"/>
                                 </mask>
                             </variation>
-                            <variation key="heightClass=regular-widthClass=compact">
+                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                <rect key="frame" x="174" y="0.0" width="53" height="21"/>
                                 <mask key="subviews">
                                     <include reference="eJ9-lI-bxe"/>
                                     <include reference="Flu-Pz-FEG"/>
@@ -175,11 +174,10 @@
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xre-Ml-lYR" customClass="ModelView">
                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                    <animations/>
                                     <color key="backgroundColor" red="0.89803921568627454" green="0.18823529411764706" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="16" id="aDk-sH-eW1"/>
-                                        <constraint firstAttribute="width" constant="16" id="qaM-te-pOR"/>
+                                        <constraint firstAttribute="height" constant="10" id="aDk-sH-eW1"/>
+                                        <constraint firstAttribute="width" constant="10" id="qaM-te-pOR"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
@@ -187,7 +185,8 @@
                                             <exclude reference="qaM-te-pOR"/>
                                         </mask>
                                     </variation>
-                                    <variation key="heightClass=regular-widthClass=compact">
+                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                        <rect key="frame" x="0.0" y="2" width="16" height="16"/>
                                         <mask key="constraints">
                                             <include reference="aDk-sH-eW1"/>
                                             <include reference="qaM-te-pOR"/>
@@ -196,13 +195,14 @@
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="塑形" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LC8-BZ-ecK">
                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                    <animations/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
+                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                        <rect key="frame" x="19" y="0.0" width="34" height="21"/>
+                                    </variation>
                                 </label>
                             </subviews>
-                            <animations/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="LC8-BZ-ecK" secondAttribute="trailing" id="1QQ-nt-oh2"/>
@@ -226,7 +226,8 @@
                                     <exclude reference="VcD-oo-07j"/>
                                 </mask>
                             </variation>
-                            <variation key="heightClass=regular-widthClass=compact">
+                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                <rect key="frame" x="101" y="0.0" width="53" height="21"/>
                                 <mask key="subviews">
                                     <include reference="xre-Ml-lYR"/>
                                     <include reference="LC8-BZ-ecK"/>
@@ -243,21 +244,22 @@
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="不同模式的使用总时长" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJh-LZ-fcw">
                             <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                            <animations/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
+                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                <rect key="frame" x="115" y="29" width="170" height="21"/>
+                            </variation>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vRm-JR-oZh">
                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YHn-r8-122" customClass="ModelView">
                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                    <animations/>
-                                    <color key="backgroundColor" red="0.23529411764705882" green="0.396078431372549" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.99607843139999996" green="0.98039215690000003" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="16" id="BqW-jk-beJ"/>
-                                        <constraint firstAttribute="height" constant="16" id="Zx2-d2-u04"/>
+                                        <constraint firstAttribute="width" constant="10" id="BqW-jk-beJ"/>
+                                        <constraint firstAttribute="height" constant="10" id="Zx2-d2-u04"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
@@ -265,7 +267,8 @@
                                             <exclude reference="Zx2-d2-u04"/>
                                         </mask>
                                     </variation>
-                                    <variation key="heightClass=regular-widthClass=compact">
+                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                        <rect key="frame" x="0.0" y="2" width="16" height="16"/>
                                         <mask key="constraints">
                                             <include reference="BqW-jk-beJ"/>
                                             <include reference="Zx2-d2-u04"/>
@@ -274,13 +277,14 @@
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="按摩" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hC-YC-rJw">
                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                    <animations/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
+                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                        <rect key="frame" x="19" y="0.0" width="34" height="21"/>
+                                    </variation>
                                 </label>
                             </subviews>
-                            <animations/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="7hC-YC-rJw" firstAttribute="leading" secondItem="YHn-r8-122" secondAttribute="trailing" constant="3" id="MGk-xt-dYm"/>
@@ -304,7 +308,8 @@
                                     <exclude reference="xZz-0P-G3p"/>
                                 </mask>
                             </variation>
-                            <variation key="heightClass=regular-widthClass=compact">
+                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                <rect key="frame" x="247" y="0.0" width="53" height="21"/>
                                 <mask key="subviews">
                                     <include reference="YHn-r8-122"/>
                                     <include reference="7hC-YC-rJw"/>
@@ -320,7 +325,6 @@
                             </variation>
                         </view>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="TqO-9F-j2n" firstAttribute="centerX" secondItem="812-tb-SwI" secondAttribute="centerX" id="0p0-WM-KCN"/>
@@ -370,7 +374,6 @@
                     </variation>
                 </view>
             </subviews>
-            <animations/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="812-tb-SwI" firstAttribute="height" secondItem="dC7-ft-jgX" secondAttribute="height" multiplier="135:455" id="3el-5e-ZS5"/>

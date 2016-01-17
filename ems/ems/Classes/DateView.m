@@ -36,7 +36,7 @@
     [[NSBundle mainBundle] loadNibNamed:@"DateView" owner:self options:nil];
     [self addSubview:self.contentView];
     
-    self.viewClor.layer.cornerRadius = 4;
+    self.viewClor.layer.cornerRadius = 3;
     self.viewClor.layer.masksToBounds = YES;
     
     self.backgroundColor = self.contentView.backgroundColor = [UIColor clearColor];

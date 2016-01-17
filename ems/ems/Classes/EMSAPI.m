@@ -26,6 +26,8 @@
 #define kMethodGetCommentUnReadCount @"/friendsCircle/getCommentUnReadCount"
 #define kMethodGetSport @"/sport/getSport"
 #define kMethodInsertSport @"/sport/insertSport"
+#define kMethodUpdateBgImage @"/user/updateBgImage"
+#define kMethodDeleteFriendsCircleById @"/friendsCircle/deleteFriendsCircleById"
 
 @implementation EMSAPI
 
@@ -136,5 +138,16 @@
 + (void)insertSportWithParameters: (id)parameters success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
 {
     [[self sharedManager]defaultHTTPWithMethod:kMethodInsertSport WithParameters:parameters post:YES success:success failure:failure];
+}
+
+
++ (void)updateBgImageWithParameters: (id)parameters success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    [[self sharedManager]defaultHTTPWithMethod:kMethodUpdateBgImage WithParameters:parameters post:YES success:success failure:failure];
+}
+
++ (void)deleteFriendsCircleByIdWithParameters: (id)parameters success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    [[self sharedManager]defaultHTTPWithMethod:kMethodDeleteFriendsCircleById WithParameters:parameters post:YES success:success failure:failure];
 }
 @end

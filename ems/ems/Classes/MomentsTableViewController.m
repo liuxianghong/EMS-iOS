@@ -11,10 +11,12 @@
 #import "EMSAPI.h"
 #import <MJRefresh.h>
 #import <UIImageView+WebCache.h>
+#import <MBProgressHUD.h>
 
 @interface MomentsTableViewController ()
 @property (nonatomic,strong) NSMutableArray *tableViewArray;
 @property (nonatomic,weak) IBOutlet UIImageView *headImageView;
+@property (nonatomic,weak) IBOutlet UIImageView *bgImageView;
 @property (nonatomic,weak) IBOutlet UILabel *nameLabel;
 @end
 
@@ -47,6 +49,13 @@
     self.headImageView.layer.cornerRadius = 30;
     self.headImageView .layer.masksToBounds = YES;
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",emsresourceURL,self.uHeadImage]] placeholderImage:self.headImageView.image];
+    
+    
+//    self.bgImageView.userInteractionEnabled = YES;
+//    [self.bgImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bgChage)]];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"bgimage"]) {
+        [self.bgImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",emsresourceURL,[[NSUserDefaults standardUserDefaults] objectForKey:@"bgimage"]]] placeholderImage:self.bgImageView.image];
+    }
     
     self.nameLabel.text = self.uName;
     
@@ -164,6 +173,34 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+-(void)doDeleteCick:(NSDictionary *)dic{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+    hud.dimBackground = YES;
+    NSDictionary *dic2 = @{
+                          @"friends_circle_id" : dic[@"id"]
+                          };
+    [EMSAPI deleteFriendsCircleByIdWithParameters:dic2 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@",responseObject);
+        if ([responseObject[@"state"] integerValue] == 0) {
+            [self.tableViewArray removeObject:dic];
+            [self.tableView reloadData];
+            [hud hide:YES];
+        }
+        else{
+            hud.mode = MBProgressHUDModeText;
+            hud.detailsLabelText = @"失败";
+            [hud hide:YES afterDelay:1.5f];
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = @"提示";
+        hud.detailsLabelText = error.domain;
+        [hud hide:YES afterDelay:1.5f];
+    }];
+    
+}
+
 -(UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
@@ -195,6 +232,14 @@
     
     // Configure the cell...
     cell.dic = self.tableViewArray[indexPath.section];
+    cell.delegate = self;
+    if ([self.uID integerValue] == [[[NSUserDefaults standardUserDefaults] objectForKey:@"id"] integerValue]) {
+        cell.deleteButton.hidden = NO;
+    }
+    else
+    {
+        cell.deleteButton.hidden = YES;
+    }
     return cell;
 }
 

@@ -11,6 +11,8 @@
 @interface CourseWeekMounthView()
 @property (nonatomic,weak) IBOutlet UIView *contentView;
 @property (nonatomic,weak) IBOutlet UILabel *calorieLabel;
+@property (nonatomic,weak) IBOutlet UILabel *label1;
+@property (nonatomic,weak) IBOutlet UILabel *label2;
 @end
 
 @implementation CourseWeekMounthView
@@ -33,6 +35,16 @@
         self.calorieLabel.text = [NSString stringWithFormat:@"%.2f大卡",calorie];
     }
     
+}
+
+-(void)setType:(NSInteger)type
+{
+    _type = type;
+    if (type == 1) {
+        self.label1.text = @"20h";
+        self.label2.text = @"40h";
+    }
+    self.DataView.type = type;
 }
 
 -(void)layoutSubviews

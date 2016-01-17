@@ -32,7 +32,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     //[self setBackImage];
     self.tableView.backgroundColor = [UIColor blackColor];
-    tableArray = @[@[@"设置",@"ic_settings.png"],@[@"商城",@"ic_store.png"],@[@"积分",@"ic_recommend.png"],@[@"精品推荐",@"ic_mark.png"],@[@"产品使用场景",@"ic_scene.png"],@[@"问题反馈",@"ic_report.png"],@[@"帮助",@"ic_help.png"]];
+    tableArray = @[@[@"设置",@"ic_settings.png"],@[@"商城",@"ic_store.png"],@[@"积分",@"ic_recommend.png"],@[@"精品推荐",@"ic_mark.png"],@[@"产品使用场景",@"ic_scene.png"],@[@"问题反馈",@"ic_report.png"],@[@"帮助",@"ic_help.png"],@[@"减肥计划",@"ic_help.png"],@[@"退出",@"ic_help.png"]];
     
     self.tableView.tableFooterView = [UIView new];
 }

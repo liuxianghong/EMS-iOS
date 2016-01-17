@@ -66,8 +66,8 @@
     CGContextAddPath(context, path);
     int TEMP_COLORS[3][3]=
     {
-        { 0X3C, 0X65, 0XB9},
         { 0XE3, 0X30, 0X51},
+        { 0X3C, 0X65, 0XB9},
         { 0XFE, 0XFA, 0X53},
     };
     CGContextSetRGBFillColor(context, TEMP_COLORS[index][0]/255.0, TEMP_COLORS[index][1]/255.0, TEMP_COLORS[index][2]/255.0, 1.0);
